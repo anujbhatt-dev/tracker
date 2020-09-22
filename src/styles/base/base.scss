@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection{
+   background: $color-primary-blue;
+
+}
+
+html{
+  // 1 rem
+  // scroll-behavior: smooth;
+  font-size: 60.5%;
+  font-family: sans-serif;
+  letter-spacing: .5px;
+  font-family: 'Roboto', sans-serif;
+  // color:$color-gig-font;
+
+  // overflow-y: scroll;
+
+  @include respond(tab-land){
+    font-size: 56.25%;
+  }
+  @include respond(tab-port){
+    font-size: 50%;
+  }
+  @include respond(phone){
+    font-size: 45%;
+  }
+  @include respond(big-desktop){
+    font-size: 75%;
+  }
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+a{
+  text-decoration: none;
+  // color: $color-white;
+  &:hover,&:active{
+    // color: $color-white;
+    text-decoration: underline;
+  }
+}
+
+.App{
+  width: 100vw;
+}
+
+
+.hr{
+  border: none;
+  border-bottom: .5px solid rgba($color-grey,.3);
+  box-shadow: 0rem 1rem 5rem rgba($color-grey,.5);
+}
+.hv{
+  border: none;
+  border-right: 1px solid rgba($color-white,.3);
+  height: 10rem;
+  box-shadow: 0rem 1rem 5rem rgba($color-grey,.1);
+  @include respond(tab-port){
+    display: none;
+  }
+}
+textarea{
+  max-width: 70vw;
+  padding: 1rem;
+}
+p{
+  color: $color-grey;
+}
+h3{
+  // color: $color-pen-primary;
+  margin-bottom: 1rem;
+}

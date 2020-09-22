@@ -1,0 +1,23 @@
+.nav{
+  font-size: 2rem;
+  position: fixed;
+  top:2rem;
+  left:2rem;
+  margin: auto;
+  &__item{
+    height:4rem;
+    width:4rem;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    background: $color-pen-primary;
+    color:$color-white;
+    transition: all .2s;
+    &:hover{
+       opacity: .8;
+    }
+  }
+}
