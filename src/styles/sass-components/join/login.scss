@@ -1,0 +1,27 @@
+.login{
+  background: $color-white;
+  &__input{
+    height: 3rem;
+    width: 30rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+    background: rgba($color-grey-light,.5);
+    &:focus{
+      border-bottom: 3px solid $color-grey-dark-3;
+      outline: none;
+    }
+  }
+}
+
+
+
+
+
+#login__btn{
+  position: static;
+}

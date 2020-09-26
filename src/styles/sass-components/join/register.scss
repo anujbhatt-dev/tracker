@@ -1,0 +1,29 @@
+.register{
+  background: $color-grey-light;
+  &__input{
+    height: 3rem;
+    width: 30rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+    &:focus{
+      border-bottom: 3px solid $color-grey-dark-3;
+      outline: none;
+    }
+  }
+  &__row{
+    &_input{
+      width: 14rem;
+    }
+    &_first{
+      margin-right: 2rem;
+    }
+  }
+}
+#register__btn{
+  position: static;
+}

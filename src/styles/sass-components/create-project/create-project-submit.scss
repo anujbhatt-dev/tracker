@@ -1,0 +1,28 @@
+.createProjectSubmit{
+  height: 4rem;
+  width: 12rem;
+  background: $color-primary-blue;
+  color: $color-white;
+  border: none;
+  cursor: pointer;
+  position:absolute;
+  bottom: 2rem;
+  right:2rem;
+  letter-spacing:  1px;
+  &:hover{
+    background: $color-secondary-blue;
+  }
+  &:focus{
+    outline: 3px solid $color-secondary-blue;
+    outline-offset: 2px;
+  }
+  @include respond(tab-port){
+    height: 3.5rem;
+    width: 10rem;
+    font-size: 1.5rem;
+    bottom:1rem;
+    right: 1rem;
+    position: static;
+    margin-top: 2rem;
+  }
+}

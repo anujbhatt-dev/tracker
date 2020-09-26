@@ -1,0 +1,19 @@
+.join{
+  height: 100vh;
+  // width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 9rem 16rem ;
+  background-image: linear-gradient(to bottom, $color-white 50%,rgba($color-grey-light,.5) 50%, rgba($color-grey-light,.5) 100%);
+  &__child{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border: 1px solid rgba($color-black,.1);
+  }
+}

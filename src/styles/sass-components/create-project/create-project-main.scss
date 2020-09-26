@@ -1,0 +1,71 @@
+.createProjectMain{
+  border: 1px solid rgba($color-black,.01);
+  display: flex;
+  background: $color-white;
+  flex-wrap: wrap;
+  padding: 2rem;
+  & div input[type="text"]{
+     height: 3rem;
+     width: 30rem;
+     margin-bottom: 2rem;
+     border: none;
+     border-bottom: 3px solid transparent;
+     transition: all .2s;
+     &:focus{
+       border-bottom: 3px solid $color-grey-dark-3;
+     }
+  }
+  & div input[type="date"]{
+     height: 3rem;
+     width: 20rem;
+     border: none;
+     margin-top: 1rem;
+  }
+  & div div label{
+     font-size: 1.5rem;
+     text-transform: uppercase;
+  }
+  & div textarea{
+    height: 20rem;
+    width: 45rem;
+    margin-bottom: 2rem;
+    border: none;
+  }
+  & input, textarea{
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+    background: rgba($color-grey-light,.5);
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+    }
+  }
+  &__col2{
+     & div{
+       height: 25rem;
+       width: 30rem;
+       background: rgba($color-grey-light,.5);
+       margin-bottom: 2rem;
+       margin-left: 2rem;
+       padding: 5%;
+       overflow-y: scroll;
+       @include respond(tab-port){
+          margin-left: 0;
+          margin-top: 2rem;
+       }
+       @include respond(phone){
+
+       }
+     }
+  }
+}
+.floater1{
+   float: left;
+   margin-right: 2rem;
+   @include respond(tab-port){
+      float: none;
+      margin-bottom: 2rem;
+   }
+}

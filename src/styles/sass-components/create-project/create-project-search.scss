@@ -1,0 +1,35 @@
+.createProjectSearch{
+  background: $color-white;
+  padding: 2rem;
+  width: 49%;
+  height: 30rem;
+  &__box{
+    height: 13%;
+    width: 100%;
+    background: rgba($color-grey-light,.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    padding: 1rem;
+    font-size: 1rem;
+    &:focus{
+      border-bottom: 3px solid $color-grey-dark-3;
+      outline: none;
+    }
+  }
+  &__result{
+    margin-top: 2%;
+    height: 85%;
+    overflow-y:scroll;
+    background: rgba($color-grey-light,.5);
+  }
+  @include respond(tab-land){
+
+  }
+  @include respond(tab-port){
+     width: 100%;
+  }
+  @include respond(phone){
+
+  }
+}
