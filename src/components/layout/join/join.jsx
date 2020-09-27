@@ -12,8 +12,8 @@ import axios from "axios"
          password:""
       },
       register:{
-        firstname:"",
-        lastname:"",
+        firstName:"",
+        lastName:"",
         email:"",
         password:"",
         confirmPassword:""
@@ -45,15 +45,19 @@ import axios from "axios"
             if(this.state.register.password===this.state.register.confirmPassword){
               let registerData = {...this.state.register}
               delete registerData.confirmPassword
+              console.log(registerData);
               axios.post("/register",registerData).then((res)=>{
                   alert("your account has been registered successfully!")
               }).catch((err)=>{
                   let defaultRegister={
+                    firstName:"",
+                    lastName:"",
                     email:"",
-                    password:""
+                    password:"",
+                    confirmPassword:""
                   }
                   this.setState({
-                    login:{...defaultRegister}
+                    register:defaultRegister
                   })
                   alert("your account has not been registered successfully!")
               })
@@ -61,18 +65,16 @@ import axios from "axios"
               alert("password and confirm password should match")
             }
          }else if(formName==="login"){
+           console.log(this.state.login);
            axios.post("/authenticate",this.state.login).then((res)=>{
                alert("your account has been logged in successfully!")
            }).catch((err)=>{
                let defaultRegister={
-                 firstname:"",
-                 lastname:"",
                  email:"",
-                 password:"",
-                 confirmPassword:""
+                 password:""
                }
                this.setState({
-                 register:{...defaultRegister}
+                 login:defaultRegister
                })
                alert("your account has not been logged in successfully!")
            })
