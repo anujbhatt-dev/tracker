@@ -4,7 +4,8 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom"
 import axios from "axios"
 
-// axios.defaults.baseURL="https://penizgun.firebaseio.com"
+axios.defaults.baseURL = "http://localhost:8085/api"
+
 
 ReactDOM.render(
   <React.StrictMode>

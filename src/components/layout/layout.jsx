@@ -9,9 +9,9 @@ import Join from "./join/join"
 
       return (
                <div className="layout">
-                      <Nav/>
-                      <CreateProject/>
-                      <Join/>
+                      <Nav authenticated={this.props.authenticated}/>
+                      <CreateProject authenticated={this.props.authenticated}/>
+                      <Join authenticated={this.props.authenticated}/>
                </div>
       )
     }
