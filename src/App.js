@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import Layout from "./components/layout/layout"
 import axios from "axios"
+import { BrowserRouter } from 'react-router-dom';
+
 
 class App extends React.Component{
 
@@ -25,9 +27,12 @@ class App extends React.Component{
   render(){
 
     return (
+      
+      <BrowserRouter>
       <div id="App" className="App">
             <Layout authenticated={this.state.authenticated}/>
       </div>
+      </BrowserRouter>
     );
   }
 }

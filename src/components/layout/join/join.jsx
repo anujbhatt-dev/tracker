@@ -46,7 +46,7 @@ import axios from "axios"
               let registerData = {...this.state.register}
               delete registerData.confirmPassword
               console.log(registerData);
-              axios.post("/register",registerData).then((res)=>{
+              axios.post("/v1/user/register",registerData).then((res)=>{
                   alert("your account has been registered successfully!")
               }).catch((err)=>{
                   let defaultRegister={
@@ -66,7 +66,7 @@ import axios from "axios"
             }
          }else if(formName==="login"){
            console.log(this.state.login);
-           axios.post("/authenticate",this.state.login).then((res)=>{
+           axios.post("/v1/user/authenticate",this.state.login).then((res)=>{
                alert("your account has been logged in successfully!")
            }).catch((err)=>{
                let defaultRegister={

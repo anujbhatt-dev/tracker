@@ -8,16 +8,16 @@ import React, {Component} from "react"
       return (
           <div className="createProjectMain">
               <div>
-                 <input placeholder="Project name" name="projectName" type="text"/><br/>
-                 <input placeholder="project Id" name="projectName" type="text"/><br/>
-                 <textarea placeholder="descreiption" name="projectName" type="text"></textarea><br/>
+                 <input value={this.props.projectName} onChange={e=>this.props.updateHandler(e)} placeholder="Project name" name="projectName" type="text"/><br/>
+                 <input value={this.props.projectId} onChange={e=>this.props.updateHandler(e)} placeholder="project Id" name="projectId" type="text"/><br/>
+                 <textarea value={this.props.description} onChange={e=>this.props.updateHandler(e)} placeholder="description" name="description" type="text"></textarea><br/>
                  <div className="floater1">
                    <label htmlFor="startDate">Start Date</label><br/>
-                   <input id="stertDate" placeholder="start date" name="projectName" type="date"/>
+                   <input value={this.props.startingDate} onChange={e=>this.props.updateHandler(e)} id="stertDate" placeholder="start date" name="startingDate" type="date"/>
                  </div>
                  <div>
-                   <label htmlFor="endDate">End Date</label><br/>
-                   <input id="endDate" placeholder="end date" name="projectName" type="date"/>
+                   <label htmlFor="endDate">Estimated End Date</label><br/>
+                   <input value={this.props.endingDate} onChange={e=>this.props.updateHandler(e)} id="endDate" placeholder="end date" name="endingDate" type="date"/>
                  </div>
               </div>
               <div className="createProjectMain__col2">

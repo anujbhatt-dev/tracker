@@ -1,4 +1,7 @@
 import React, {Component} from "react"
+import { NavLink } from "react-router-dom";
+
+
 
 
   class VerticalNav extends Component{
@@ -7,10 +10,10 @@ import React, {Component} from "react"
 
       return (
         <div  className={"verticalNav "+(this.props.show?"show":"dontShow")}>
-            <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div>
-            <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div>
-            <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div>
-            <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div>
+           <NavLink to="/createProject">  <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>Add Project</div></div></NavLink>
+           <NavLink to="/">  <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div></NavLink>
+           <NavLink to="/">  <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div></NavLink>
+           <NavLink to="/">  <div className="verticalNav__item"><i class="fa fa-university" aria-hidden="true"></i> <div>231</div></div></NavLink>
         </div>
       )
     }
