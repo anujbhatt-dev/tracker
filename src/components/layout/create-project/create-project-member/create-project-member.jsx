@@ -9,7 +9,7 @@ import axios from "axios";
       search:"",
       data:[],
       totalPages:"0",
-      page:"0",
+      page:0,
       loading:false,
       members:[],
       addedEmails:[],
@@ -19,7 +19,7 @@ import axios from "axios";
 
     componentDidUpdate(){
       
-      // console.log(this.state.members)
+      
       if(this.state.loading && this.state.search.length>4)
         axios.get(`/v1/user/${this.state.search}/${this.state.page}`)
         .then(res=>{
@@ -42,7 +42,7 @@ import axios from "axios";
 
     memberAddHandler=(member)=>{
 
-      member.authority="SOILDER"
+      member.authority="SOLDIER"
 
       this.setState(state=>{return {
                                  members:[member].concat(state.members),
@@ -92,7 +92,7 @@ import axios from "axios";
           
         <>
           <div className="createProjectSearch">
-               <input onChange={e=>{ this.setState({search:e.target.value});if(e.target.value.length>4)this.setState({loading:true,data:[]}) }} value={this.state.search}   placeholder="search" className="createProjectSearch__box" type="text"/>
+               <input onChange={e=>{ this.setState({search:e.target.value});if(e.target.value.length>4)this.setState({loading:true,data:[],page:0}) }} value={this.state.search}   placeholder="search" className="createProjectSearch__box" type="text"/>
                <div className="createProjectSearch__result">
                  {this.state.data.map(member=>
                                 <>
@@ -101,10 +101,11 @@ import axios from "axios";
                                   <br/>
                                   </> 
                                   )}
+               <button disabled={this.state.page+1>=this.state.totalPages} onClick={()=>this.setState((state)=>{return {page:state.page+1,loading:true}})} >Load More</button>
                </div>
           </div>
           <div className="createProjectAdded">
-          <input placeholder="Find a soilder" className="createProjectSearch__box" type="text"/>
+          <input placeholder="Find a SOLDIER" className="createProjectSearch__box" type="text"/>
           <div className="createProjectSearch__result">
                 
 
@@ -128,7 +129,7 @@ import axios from "axios";
               <button onClick={()=>this.memberRemoveHandler(member.email,i)} >Remove</button>
               <select  onChange={(e)=>this.authorityChangeHandler(i,e.target.value)}>
               <option defaultChecked value="CHIEF">Chief</option>
-              <option value="SOILDER">Soilder</option>
+              <option value="SOLDIER">SOLDIER</option>
               </select>
                <br/>
                </>)}
@@ -138,16 +139,16 @@ import axios from "axios";
 
  
              <br/>
-            <h2>Soilder</h2>
+            <h2>SOLDIER</h2>
                  <hr/>
              {this.state.members
              .map((member,i)=>
-                  {if(member.authority==="SOILDER")
+                  {if(member.authority==="SOLDIER")
                   return ( <>
                   {member.email} {member.firstName} {member.authority}
                   <button onClick={()=>this.memberRemoveHandler(member.email,i)} >Remove</button>
                   <select onChange={(e)=>this.authorityChangeHandler(i,e.target.value)} >
-                  <option  defaultChecked value="SOILDER">Soilder</option>
+                  <option  defaultChecked value="SOLDIER">SOLDIER</option>
                  <option value="CHIEF">Chief</option>
               </select>
                    <br/>
