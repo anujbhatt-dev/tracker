@@ -1,0 +1,30 @@
+.removeIcon,.plusIcon{
+   font-size: 2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.removeIcon{
+   align-self: flex-start;
+   padding: .5rem;
+   transition: all .2s;
+   cursor: pointer;
+   &:hover{
+     background: $color-black;
+     color:$color-white;
+   }
+}
+
+.plusIcon{
+  padding: .5rem;
+  transition: all .2s;
+  cursor: pointer;
+  background: $color-grey-dark-3;
+  color:$color-white;
+  &:hover{
+    background: $color-grey;
+    color:$color-white;
+  }
+}

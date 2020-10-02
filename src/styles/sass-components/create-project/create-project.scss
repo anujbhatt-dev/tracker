@@ -6,12 +6,15 @@
   & .createProject{
     display: flex;
     position: relative;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
+    flex-flow: column;
+
     &__col2{
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
-      margin-left: 2rem;
+      margin-top: 2rem;
       flex-grow: 1;
       @include respond(tab-land){
           margin-left: 0;
