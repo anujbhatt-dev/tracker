@@ -9,15 +9,28 @@ import axios from "axios"
     state={
       login:{
          email:"",
-         password:""
+         password:"",
+         
       },
       register:{
         firstName:"",
         lastName:"",
         email:"",
         password:"",
-        confirmPassword:""
-      }
+        confirmPassword:"",
+        imageUrl:"",
+         thumbnailUrl:"",
+         deleteUrl:"",
+      },
+      rollBack:false,
+    }
+
+
+    componentWillUnmount=()=>{
+
+      if(this.state.rollBack)
+      axios.get();
+
     }
 
 
@@ -39,6 +52,19 @@ import axios from "axios"
          }
     }
 
+
+    imageUrlUpdateHandler=(imageUrl,deleteUrl,thumbnailUrl)=>{
+
+      let register={...this.state.register}
+      register.imageUrl=imageUrl;
+      register.deleteUrl=deleteUrl;
+      register.thumbnailUrl=thumbnailUrl
+
+      this.setState({
+       register:register,
+      })
+    }
+
     onSubmitHandler=(e,formName)=>{
          e.preventDefault();
          if(formName==="register"){
@@ -47,6 +73,7 @@ import axios from "axios"
               delete registerData.confirmPassword
               console.log(registerData);
               axios.post("/v1/user/register",registerData).then((res)=>{
+                this.setState({rollBack:false})
                   alert("your account has been registered successfully!")
               }).catch((err)=>{
                   let defaultRegister={
@@ -87,7 +114,7 @@ import axios from "axios"
       return (
              <div className="join">
                  <Login onSubmitHandler={this.onSubmitHandler} register={this.state.login} onChangeHandler={this.onChangeHandler}/>
-                 <Register onSubmitHandler={this.onSubmitHandler} register={this.state.register} onChangeHandler={this.onChangeHandler}/>
+                 <Register onSubmitHandler={this.onSubmitHandler} register={this.state.register} imageUrlUpdateHandler={this.imageUrlUpdateHandler} onChangeHandler={this.onChangeHandler}/>
              </div>
       )
     }

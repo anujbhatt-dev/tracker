@@ -89,7 +89,7 @@ import anuj from "../../../../assets/images/anuj.png"
                  {this.state.data.map(member=>
                    <div className="createProjectMember__result_item">
                      <figure className="createProjectMember__result_item-fig">
-                        <img className="createProjectMember__result_item-fig_img" src={anuj} alt=""/>
+                     <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
                         <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                      </figure>
                      <div className="createProjectMember__result_item createProjectMember__result_item-col2">
@@ -118,7 +118,8 @@ import anuj from "../../../../assets/images/anuj.png"
                 if(member.authority==="CHIEF"){
                   return <div className="createProjectMember__result_item">
                              <figure className="createProjectMember__result_item-fig">
-                                <img className="createProjectMember__result_item-fig_img" src={anuj} alt=""/>
+                                <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
+                               
                                 <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                              </figure>
                              <div className="createProjectMember__result_item createProjectMember__result_item-col2">
@@ -143,7 +144,7 @@ import anuj from "../../../../assets/images/anuj.png"
                if(member.authority==="SOLDIER"){
                  return <div className="createProjectMember__result_item">
                             <figure className="createProjectMember__result_item-fig">
-                               <img className="createProjectMember__result_item-fig_img" src={anuj} alt=""/>
+                            <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
                                <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                             </figure>
                             <div className="createProjectMember__result_item createProjectMember__result_item-col2">
