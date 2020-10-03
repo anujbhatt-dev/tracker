@@ -2,9 +2,22 @@
   background: $color-white;
   padding: 2rem;
   width: 49%;
-  height: 30rem;
-  margin-left: 2%;
+  height: 60rem;
+  margin-left: 1%;
   @include respond(tab-port){
      width: 100%;
+  }
+}
+.select{
+  border: none;
+  
+  &:focus{
+    outline:none;
+  }
+  &__option{
+    border: none;
+    &:focus{
+      outline:none;
+    }
   }
 }

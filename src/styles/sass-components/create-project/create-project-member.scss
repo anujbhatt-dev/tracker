@@ -1,10 +1,10 @@
 .createProjectMember{
   background: $color-white;
   padding: 2rem;
-  width: 49%;
-  height: 30rem;
+  width: 49.5%;
+  height: 60rem;
   &__box{
-    height: 13%;
+    height: 10%;
     width: 100%;
     background: rgba($color-grey-light,.5);
     border: none;
@@ -18,10 +18,77 @@
     }
   }
   &__result{
+    position: relative;
     margin-top: 2%;
-    height: 85%;
+    height: 90%;
     overflow-y:scroll;
     background: rgba($color-grey-light,.5);
+    padding: 1rem;
+    padding-bottom: 0;
+    &-2{
+      height: auto;
+      max-height: 30rem;
+      overflow-y: auto;
+      background: transparent;
+    }
+    &_item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // padding: 0 .5rem;
+      margin-bottom: .5rem;
+      line-height: 1.5;
+      &-col2{
+        flex-flow: column;
+      }
+      &-fig{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        &_img{
+          height: 4rem;
+          width: 4rem;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 100px;
+        }
+      }
+      &-name{
+        text-transform: uppercase;
+        flex-grow: 1;
+        word-spacing: 2px;
+      }
+      &--btn{
+
+        border: none;
+        &:focus{
+          outline: none;
+        }
+        & i{
+          background: $color-black;
+        }
+        &:disabled > i{
+          background: $color-grey;
+        }
+      }
+    }
+    &_btn{
+      margin: 0 auto;
+      display: block;
+      // position: sticky;
+      bottom: 0;
+      border: none;
+      background: $color-black;
+      color:$color-white;
+      padding: .5rem 1rem;
+      &:focus{
+        outline: none;
+      }
+      &:disabled{
+        background: $color-grey;
+      }
+    }
   }
   @include respond(tab-land){
 
