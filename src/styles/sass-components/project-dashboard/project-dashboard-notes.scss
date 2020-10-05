@@ -1,0 +1,31 @@
+.projectDashboardNotes{
+  background: $color-grey-light;
+  padding: 2rem 0;
+  &__notes{
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+    background: $color-white;
+    box-shadow: inset 0rem 0rem 3rem rgba($color-black,.2);
+    border-radius: 10px;
+    overflow: hidden; 
+    & .title{
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      &__arrow{
+        padding: .5rem;
+        font-size: 2rem;
+      }
+    }
+    & .description{
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      line-height: 1.5;
+      color: $color-grey;
+      animation: NotesCome .3s ease-out;
+    }
+  }
+}

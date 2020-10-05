@@ -1,0 +1,42 @@
+&__col2{
+ width: 30%;
+ position: relative;
+ overflow-y: scroll;
+ &_toggler{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   font-size: 1.5rem;
+   text-transform: uppercase;
+   background: $color-grey-dark-3;
+   position: sticky;
+   padding: 1.5rem 0;
+   top:0;
+   & div{
+     text-align: center;
+     flex-grow: 1;
+     color: $color-white;
+     padding: 0 2rem;
+     cursor: pointer;
+     &:hover,&:focus{
+       text-decoration: none;
+     }
+   }
+ }
+ &_activities,&_members{
+   &--divodd{
+      height: 5rem;
+      background: $color-grey;
+      padding: 2rem;
+      color: $color-white;
+      font-size: 1.2rem;
+   }
+   &--diveven{
+     height: 5rem;
+      background: $color-grey-light;
+      padding: 2rem;
+      color: $color-white;
+      font-size: 1.2rem;
+   }
+ }
+}

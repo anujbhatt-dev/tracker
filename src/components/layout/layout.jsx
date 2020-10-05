@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import Nav from "./nav/nav"
 import CreateProject from "./create-project/create-project"
 import Join from "./join/join"
+import ProjectDashboard from "./project-dashboard/project-dashboard"
 import { Switch,Route } from "react-router-dom"
 
 
@@ -15,10 +16,12 @@ import { Switch,Route } from "react-router-dom"
                      <Switch>
 
                      <Route exact path="/"><Join authenticated={this.props.authenticated}/></Route>
-                    
+
                      <Route exact path="/createProject"><CreateProject authenticated={this.props.authenticated}/></Route>
-                      
-                      </Switch> 
+
+                      <Route path="/projectDashboard"><ProjectDashboard authenticated={this.props.authenticated}/></Route>
+
+                      </Switch>
                </div>
       )
     }

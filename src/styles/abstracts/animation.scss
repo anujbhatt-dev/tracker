@@ -18,3 +18,11 @@
     opacity: 1;
   }
 }
+@keyframes NotesCome {
+  0%{
+    transform: translateX(200%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
