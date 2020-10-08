@@ -1,13 +1,14 @@
 .projectDashboardNotes{
-  background: $color-grey-light;
-  padding: 2rem 0;
+  background: $color-white;
+  padding: 2rem 1rem;
   &__notes{
     padding: 2rem 1rem;
     margin: 2rem 1rem;
     background: $color-white;
-    box-shadow: inset 0rem 0rem 3rem rgba($color-black,.2);
-    border-radius: 10px;
-    overflow: hidden; 
+    // box-shadow: inset 0rem 0rem 3rem rgba($color-black,.2);
+    border: 1px solid rgba($color-black,.2);
+    border-radius: 5px;
+    overflow: hidden;
     & .title{
       font-size: 1.5rem;
       letter-spacing: 1px;
@@ -26,6 +27,80 @@
       line-height: 1.5;
       color: $color-grey;
       animation: NotesCome .3s ease-out;
+    }
+  }
+  &__update{
+    &_head{
+      color: $color-ppm-primary;
+      width: 80%;
+      margin: 5rem auto;
+      margin-bottom: -4rem;
+    }
+    &_addForm{
+      border: 1px solid rgba($color-black,.2);
+      display: flex;
+      flex-flow: column;
+      margin: 5rem auto;
+      width: 80%;
+      &-title{
+         width: 100%;
+         min-height: 5rem;
+         border: none;
+         border-bottom: 1px solid rgba($color-black,.2);
+         padding: .5rem;
+      }
+      &-description{
+         width: 100%;
+         min-height: 8rem;
+         border: none;
+         border-bottom: 1px solid rgba($color-black,.2);
+         padding: .5rem;
+      }
+      &-btn{
+         border: none;
+         display: inline-block;
+         transition: all .5s;
+         width: 20rem;
+         padding: 1rem 4rem;
+         margin: 2rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 2px;
+         & .fa-upload{
+           color: $color-ppm-secondary;
+           padding-right: .5rem;
+           font-size: 2rem;
+         }
+         & .fa-pencil{
+           color: $color-gig-primary;
+           padding-right: .5rem;
+           font-size: 2rem;
+         }
+         & .fa-trash{
+           color: $color-red;
+           padding-right: .5rem;
+           font-size: 2rem;
+         }
+         &:hover{
+           background: rgba($color-grey,.5);
+         }
+      }
+
+      &-title,&-description,&-btn{
+        font-size: 1.2rem;
+        &::placeholder{
+           font-size: 1rem;
+        }
+         &:focus{
+           outline: none;
+         }
+      }
+      &-delete{
+        border:2px solid $color-red;
+        color: $color-red;
+        margin-left: 10%;
+      }
     }
   }
 }

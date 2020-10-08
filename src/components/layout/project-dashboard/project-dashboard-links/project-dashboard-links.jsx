@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { withRouter } from "react-router-dom"
-import axios from "axios"
+import axios from "axios";
+import Modal from "../../../../UI/modal";
 
 
   class ProjectDashboardLinks extends Component{
@@ -32,7 +33,14 @@ import axios from "axios"
           description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero similique, eum distinctio, nam laboriosam et at fugiat corporis voluptates praesentium, deserunt magni fuga vel minima exercitationem ipsam sunt deleniti nesciunt delectus ad odio facilis. Quod dolorum voluptatem quo accusamus recusandae, expedita omnis rem impedit! Tenetur error eius earum recusandae alias blanditiis praesentium explicabo inventore, incidunt magni odit ducimus atque voluptatibus dicta, suscipit tempore, necessitatibus aspernatur perferendis ab neque illum minus adipisci doloremque ullam animi? Distinctio inventore maiores sunt animi adipisci aliquid at soluta totam, voluptatibus, accusantium modi, tempore! Possimus aperiam temporibus magni libero id optio odio molestias deserunt, non quidem.",
           toggle:false
         },
-      ]
+      ],
+      show:false
+    }
+
+    modalHandler=()=>{
+      this.setState({
+        show:!this.state.show
+      })
     }
 
     componentDidMount=()=>{
@@ -40,7 +48,7 @@ import axios from "axios"
       .then(res=>{
      this.setState({links:res.data});
       })
-     
+
      }
 
     toggleHandler=(i)=>{
@@ -53,7 +61,7 @@ import axios from "axios"
 
     render(){
 
-      console.log(this.props) 
+      console.log(this.props)
 
 
       return (
@@ -62,11 +70,32 @@ import axios from "axios"
               return <div key={link.title+i} className="projectDashboardNotes__notes">
                          <div className="title">
                            <a href={link.title} className="title__text">{link.title}</a>
-                           <div onClick={()=>this.toggleHandler(i)}  className="title__arrow"><i className="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                           <div>
+                              <div onClick={()=>this.modalHandler()}  className="title__arrow"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                              <div onClick={()=>this.toggleHandler(i)}  className="title__arrow"><i className="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                           </div>
                          </div>
                          <div style={!link.toggle?{display:"none"}:{display:"block"}} className="description">{link.description}</div>
                       </div>
             })}
+            {this.state.show?<Modal modalHandler={this.modalHandler}>
+               <div className="projectDashboardNotes__update">
+                    <h1 className="projectDashboardNotes__update_head">ADD LINK</h1>
+                    <form  className="projectDashboardNotes__update_addForm" action="">
+                         <input placeholder="* link" className="projectDashboardNotes__update_addForm-title" type="text"/>
+                         <textarea placeholder="* description" className="projectDashboardNotes__update_addForm-description" type="text"></textarea>
+                         <button type="submit" className="projectDashboardNotes__update_addForm-btn"> <i className="fa fa-upload" aria-hidden="true"></i><span>New Note</span></button>
+
+                    </form>
+                    <h1 className="projectDashboardNotes__update_head">UPDATE LINK</h1>
+                    <form  className="projectDashboardNotes__update_addForm" action="">
+                         <input  placeholder="* link" className="projectDashboardNotes__update_addForm-title" type="text"/>
+                         <textarea  placeholder="* description" className="projectDashboardNotes__update_addForm-description" type="text"></textarea>
+                         <button type="submit" className="projectDashboardNotes__update_addForm-btn"> <i className="fa fa-pencil" aria-hidden="true"></i><span>Update LINK</span></button>
+                    </form>
+                    <button type="submit" className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-delete"> <i className="fa fa-trash" aria-hidden="true"></i><span>Delete Link</span></button>
+               </div>
+            </Modal>:null}
         </div>
       )
     }

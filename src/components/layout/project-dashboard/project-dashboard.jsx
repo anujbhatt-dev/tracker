@@ -26,10 +26,10 @@ class ProjectDashboard extends Component{
       .then(res=>
         {
           this.setState({members:res.data});
-          
+
         }
       );
-      
+
     }
 
     render(){
@@ -42,9 +42,9 @@ class ProjectDashboard extends Component{
            <div className="projectDashboard">
                  <div className="projectDashboard__col1">
                       <ProjectDashboardNav projectId={projectId}/>
-                      
+
                       <Switch>
-                        
+
                     <Route exact path="/projectDashboard"><ProjectDashboardRoadmap projectId={projectId}/></Route>
                     <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap projectId={projectId}/></Route>
 
@@ -59,42 +59,28 @@ class ProjectDashboard extends Component{
                  </div>
                  <div className="projectDashboard__col2">
                       <div className="projectDashboard__col2_toggler">
-                          <div style={this.state.aside==="activities"?{color:"orangered"}:{color:"white"}} onClick={()=>this.asideHandler("activities")}>Activities</div>
-                          <div style={this.state.aside==="members"?{color:"orangered"}:{color:"white"}} onClick={()=>this.asideHandler("members")}>Members</div>
+                          <div style={this.state.aside==="activities"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("activities")}>Activities</div>
+                          <div style={this.state.aside==="members"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("members")}>Members</div>
                       </div>
                       {this.state.aside==="activities"?
                       <div className="projectDashboard__col2_activities">
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
                       </div>:
                       <div className="projectDashboard__col2_members">
                         {this.state.members
                         .map(member=>
-                        <div  className="projectDashboard__col2_activities--divodd">{member.user.email} {member.user.firstName}</div>
+                        <div  className="projectDashboard__col2_activities--div">{member.user.email} {member.user.firstName}</div>
                          )}
-                           
+
                       </div>}
                  </div>
            </div>

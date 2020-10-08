@@ -26,3 +26,19 @@
     transform: translateX(0%);
   }
 }
+@keyframes ModalContent {
+  0%{
+    transform: translateX(200%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+@keyframes ModalBack {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
