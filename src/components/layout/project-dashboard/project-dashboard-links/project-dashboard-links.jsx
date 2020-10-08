@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import { withRouter } from "react-router-dom"
+import axios from "axios"
 
 
   class ProjectDashboardLinks extends Component{
@@ -33,6 +35,14 @@ import React, {Component} from "react"
       ]
     }
 
+    componentDidMount=()=>{
+      axios.get("/v1/project/"+this.props.projectId+"/note")
+      .then(res=>{
+     this.setState({links:res.data});
+      })
+     
+     }
+
     toggleHandler=(i)=>{
        const newLinks =this.state.links
        newLinks[i].toggle = !newLinks[i].toggle
@@ -42,6 +52,9 @@ import React, {Component} from "react"
     }
 
     render(){
+
+      console.log(this.props) 
+
 
       return (
         <div className="projectDashboardNotes">
@@ -60,4 +73,4 @@ import React, {Component} from "react"
   }
 
 
- export default ProjectDashboardLinks;
+ export default withRouter(ProjectDashboardLinks);

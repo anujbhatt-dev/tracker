@@ -1,12 +1,12 @@
 import React, {Component} from "react"
 import {Switch , Route ,withRouter} from "react-router-dom"
-import ProjectDashboardNav from "./project-dashboard-nav/project-dashboard-nav"
-import ProjectDashboardNotes from "./project-dashboard-notes/project-dashboard-notes"
-import ProjectDashboardLinks from "./project-dashboard-links/project-dashboard-links"
-import ProjectDashboardRoadmap from "./project-dashboard-roadmap/project-dashboard-roadmap"
-import ProjectDashboardMembers from "./project-dashboard-members/project-dashboard-members"
+import MissionDashboardNav from "./mission-dashboard-nav/mission-dashboard-nav"
+import MissionDashboardNotes from "./mission-dashboard-notes/mission-dashboard-notes"
+import MissionDashboardLinks from "./mission-dashboard-links/mission-dashboard-links"
+import MissionDashboardMembers from "./mission-dashboard-members/mission-dashboard-members"
+import MissionDashboardObjective from "./mission-dashboard-objective/mission-dashboard-objective"
 
-class ProjectDashboard extends Component{
+class MissionDashboard extends Component{
 
     state={
       aside:"activities"
@@ -23,24 +23,25 @@ class ProjectDashboard extends Component{
       //     <Route exact path="/projectDashboard/notes"><ProjectDashboardNotes/></Route>
       // </Switch>
 
-      const projectId= this.props.match.params.id;
+      const projectId= this.props.match.params.projectId;
+      const missionId= this.props.match.params.missionId;
       console.log(this.props)
 
       return (
            <div className="projectDashboard">
                  <div className="projectDashboard__col1">
-                      <ProjectDashboardNav projectId={projectId}/>
+                      <MissionDashboardNav projectId={projectId} missionId={missionId}/>
                       
                       <Switch>
                         
-                    <Route exact path="/projectDashboard"><ProjectDashboardRoadmap projectId={projectId}/></Route>
-                    <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap projectId={projectId}/></Route>
+                             <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective projectId={projectId}/></Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/objective"><MissionDashboardObjective projectId={projectId}/></Route>
 
-                     <Route exact path="/projectDashboard/:id/notes"><ProjectDashboardNotes projectId={projectId}/></Route>
+                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/notes"><MissionDashboardNotes projectId={projectId}/></Route>
 
-                     <Route exact path="/projectDashboard/:id/links"><ProjectDashboardLinks projectId={projectId}/></Route>
+                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/links"><MissionDashboardLinks projectId={projectId}/></Route>
 
-                     <Route exact path="/projectDashboard/:id/members">Member</Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/members">Member</Route>
                         </Switch>
 
 
@@ -116,4 +117,4 @@ class ProjectDashboard extends Component{
   }
 
 
- export default withRouter(ProjectDashboard);
+ export default withRouter(MissionDashboard);

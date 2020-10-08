@@ -4,6 +4,9 @@ import CreateProjectMember from "./create-project-member/create-project-member"
 import CreateProjectAlerts from "./create-project-alerts/create-project-alerts"
 import CreateProjectSubmit from "./create-project-submit/create-project-submit"
 import axios from "axios"
+import { withRouter } from "react-router-dom"
+
+
 
 class CreateProject extends Component{
      state={
@@ -39,10 +42,14 @@ class CreateProject extends Component{
 
      createProject=(e)=>{
            e.preventDefault();
-           axios.post("/v1/project",this.state)
-           .then(res=>{
-             console.log(res.data);
-           })
+
+           this.props.history.push("/projectDashboard/"+this.state.projectId);
+
+          //  axios.post("/v1/project",this.state)
+          //  .then(res=>{
+          //    console.log(res.data);
+          //    this.props.history.push("/projectDashboard/"+this.state.projectId);
+          //  })
      }
 
      updateHandler=(e)=>{
@@ -134,6 +141,9 @@ class CreateProject extends Component{
 
 
     render(){
+
+      console.log(this.props);
+
       return (
         <div className="createProjectWrapper">
            <form autocomplete="off" onSubmit={this.createProject} className="createProject">
@@ -162,4 +172,4 @@ class CreateProject extends Component{
   }
 
 
- export default CreateProject;
+ export default withRouter(CreateProject);

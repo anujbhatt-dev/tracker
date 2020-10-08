@@ -1,8 +1,7 @@
 import React, {Component} from "react"
-import axios from "axios"
 
 
-  class ProjectDashboardNotes extends Component{
+  class MissionDashboardNotes extends Component{
 
     state={
       notes:[
@@ -35,14 +34,6 @@ import axios from "axios"
     }
 
 
-    componentDidMount=()=>{
-     axios.get("/v1/project/"+this.props.projectId+"/note")
-     .then(res=>{
-    this.setState({notes:res.data});
-     })
-    
-    }
-
     
 
     toggleHandler=(i)=>{
@@ -72,4 +63,4 @@ import axios from "axios"
   }
 
 
- export default ProjectDashboardNotes;
+ export default MissionDashboardNotes;
