@@ -5,11 +5,14 @@ import MissionDashboardNotes from "./mission-dashboard-notes/mission-dashboard-n
 import MissionDashboardLinks from "./mission-dashboard-links/mission-dashboard-links"
 import MissionDashboardMembers from "./mission-dashboard-members/mission-dashboard-members"
 import MissionDashboardObjective from "./mission-dashboard-objective/mission-dashboard-objective"
+import axios from "axios"
 
 class MissionDashboard extends Component{
 
     state={
-      aside:"activities"
+      aside:"activities",
+      activities:"",
+      members:"",
     }
 
     asideHandler=(aside)=>{
@@ -17,6 +20,10 @@ class MissionDashboard extends Component{
         aside:aside
       })
     }
+
+    // componentDidMount=()=>{
+    //   axios.get("/v2/project/"+this.props.match.params.missionId+"/members")
+    // }
 
     render(){
       // <Switch>

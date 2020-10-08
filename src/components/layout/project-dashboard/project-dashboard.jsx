@@ -5,11 +5,14 @@ import ProjectDashboardNotes from "./project-dashboard-notes/project-dashboard-n
 import ProjectDashboardLinks from "./project-dashboard-links/project-dashboard-links"
 import ProjectDashboardRoadmap from "./project-dashboard-roadmap/project-dashboard-roadmap"
 import ProjectDashboardMembers from "./project-dashboard-members/project-dashboard-members"
+import axios from "axios"
+
 
 class ProjectDashboard extends Component{
 
     state={
-      aside:"activities"
+      aside:"activities",
+      members:[],
     }
 
     asideHandler=(aside)=>{
@@ -18,14 +21,23 @@ class ProjectDashboard extends Component{
       })
     }
 
+    componentDidMount=()=>{
+      axios.get("/v1/project/"+this.props.match.params.id+"/member")
+      .then(res=>
+        {
+          this.setState({members:res.data});
+          
+        }
+      );
+      
+    }
+
     render(){
       // <Switch>
       //     <Route exact path="/projectDashboard/notes"><ProjectDashboardNotes/></Route>
       // </Switch>
 
       const projectId= this.props.match.params.id;
-      console.log(this.props)
-
       return (
            <div className="projectDashboard">
                  <div className="projectDashboard__col1">
@@ -78,36 +90,11 @@ class ProjectDashboard extends Component{
                             <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
                       </div>:
                       <div className="projectDashboard__col2_members">
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
+                        {this.state.members
+                        .map(member=>
+                        <div  className="projectDashboard__col2_activities--divodd">{member.user.email} {member.user.firstName}</div>
+                         )}
+                           
                       </div>}
                  </div>
            </div>
