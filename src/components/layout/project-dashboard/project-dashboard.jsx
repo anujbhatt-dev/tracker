@@ -45,7 +45,7 @@ class ProjectDashboard extends Component{
                       
                       <Switch>
                         
-                    <Route exact path="/projectDashboard"><ProjectDashboardRoadmap projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap projectId={projectId}/></Route>
                     <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:id/notes"><ProjectDashboardNotes projectId={projectId}/></Route>

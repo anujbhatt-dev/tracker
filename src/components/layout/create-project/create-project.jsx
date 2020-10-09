@@ -45,11 +45,11 @@ class CreateProject extends Component{
 
            this.props.history.push("/projectDashboard/"+this.state.projectId);
 
-          //  axios.post("/v1/project",this.state)
-          //  .then(res=>{
-          //    console.log(res.data);
-          //    this.props.history.push("/projectDashboard/"+this.state.projectId);
-          //  })
+           axios.post("/v1/project",this.state)
+           .then(res=>{
+             console.log(res.data);
+             this.props.history.push("/projectDashboard/"+this.state.projectId);
+           })
      }
 
      updateHandler=(e)=>{
