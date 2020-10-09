@@ -1,0 +1,25 @@
+.modal{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__backdrop{
+    background: rgba($color-black,.7);
+    filter: blur(1px);
+    width: 50%;
+    height: 100%;
+    animation: ModalBack .5s ease-out;
+  }
+  &__content{
+    background: $color-white;
+    width:50%;
+    height: 100%;
+    animation: ModalContent .5s ease-out;
+    overflow-y: auto;
+  }
+}

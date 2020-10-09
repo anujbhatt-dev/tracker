@@ -55,8 +55,8 @@ class MissionDashboard extends Component{
                  </div>
                  <div className="projectDashboard__col2">
                       <div className="projectDashboard__col2_toggler">
-                          <div style={this.state.aside==="activities"?{color:"orangered"}:{color:"white"}} onClick={()=>this.asideHandler("activities")}>Activities</div>
-                          <div style={this.state.aside==="members"?{color:"orangered"}:{color:"white"}} onClick={()=>this.asideHandler("members")}>Members</div>
+                          <div style={this.state.aside==="activities"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("activities")}>Activities</div>
+                          <div style={this.state.aside==="members"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("members")}>Members</div>
                       </div>
                       {this.state.aside==="activities"?
                       <div className="projectDashboard__col2_activities">

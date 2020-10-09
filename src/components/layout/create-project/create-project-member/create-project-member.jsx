@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import axios from "axios";
-import anuj from "../../../../assets/images/anuj.png"
 
   class CreateProjectMember extends Component{
 
@@ -77,7 +76,7 @@ import anuj from "../../../../assets/images/anuj.png"
     }
 
 
-
+   
 
     render(){
       return (
