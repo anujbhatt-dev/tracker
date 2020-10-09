@@ -66,9 +66,6 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
 
     updateNoteSubmitHandler=(e)=>{
       e.preventDefault();
-
-      //axios call 
-      //inside then
           
       let newNotes=[...this.state.notes];
       newNotes[this.state.selectedIndex]=this.state.selectedNote;
