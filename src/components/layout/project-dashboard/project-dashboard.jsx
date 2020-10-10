@@ -44,7 +44,7 @@ class ProjectDashboard extends Component{
                       <ProjectDashboardNav projectId={projectId}/>
 
                       <Switch>
-                        
+
                     <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap projectId={projectId}/></Route>
                     <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap projectId={projectId}/></Route>
 
@@ -77,8 +77,19 @@ class ProjectDashboard extends Component{
                       </div>:
                       <div className="projectDashboard__col2_members">
                         {this.state.members
-                        .map(member=>
-                        <div  className="projectDashboard__col2_activities--div">{member.user.email} {member.user.firstName}</div>
+                        .map((member,i)=>
+                          <div key={member.user.email+i} className="projectDashboardNotes__notes ">
+                                     <div  className="projectDashboardMember__member">
+                                       <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
+                                       <div className="projectDashboardMember__member_textWrapper">
+                                           <div className="projectDashboardMember__member_text">{member.user.email}</div>
+                                           <div className="projectDashboardMember__member_text">{member.user.firstName} {member.user.lastName}</div>
+                                           <div className="projectDashboardMember__member_text">{member.user.authority}</div>
+                                       </div>
+                                       <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {member.user.addedOn}</div>
+                                       <div onClick={()=>this.modalHandler(member,i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                                     </div>
+                                  </div>
                          )}
 
                       </div>}

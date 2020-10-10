@@ -12,7 +12,7 @@ import Modal from "../../../../UI/modal";
           description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero similique, eum distinctio, nam laboriosam et at fugiat corporis voluptates praesentium, deserunt magni fuga vel minima exercitationem ipsam sunt deleniti nesciunt delectus ad odio facilis. Quod dolorum voluptatem quo accusamus recusandae, expedita omnis rem impedit! Tenetur error eius earum recusandae alias blanditiis praesentium explicabo inventore, incidunt magni odit ducimus atque voluptatibus dicta, suscipit tempore, necessitatibus aspernatur perferendis ab neque illum minus adipisci doloremque ullam animi? Distinctio inventore maiores sunt animi adipisci aliquid at soluta totam, voluptatibus, accusantium modi, tempore! Possimus aperiam temporibus magni libero id optio odio molestias deserunt, non quidem.",
           toggle:false
         },
-        
+
       ],
       show:false,
       selectedNote:{},
@@ -43,7 +43,7 @@ import Modal from "../../../../UI/modal";
     }
 
     selectedOnChangeHandler=(e)=>{
-        
+
       let newNote= {... this.state.selectedNote};
 
       newNote[e.target.name]=e.target.value;
@@ -53,7 +53,7 @@ import Modal from "../../../../UI/modal";
 
 
     newOnChangeHandler=(e)=>{
-        
+
       let newNote= {... this.state.newNote};
 
       newNote[e.target.name]=e.target.value;
@@ -70,9 +70,9 @@ import Modal from "../../../../UI/modal";
     updateNoteSubmitHandler=(e)=>{
       e.preventDefault();
 
-      //axios call 
+      //axios call
       //inside then
-          
+
       let newNotes=[...this.state.notes];
       newNotes[this.state.selectedIndex]=this.state.selectedNote;
 
@@ -90,13 +90,13 @@ import Modal from "../../../../UI/modal";
     }
 
 
-    
+
 
     render(){
 
       return (
          <div className="projectDashboardNotes">
-           <button onClick={()=>this.setState({show:"ADD"})}>ADD</button>
+             <button className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={()=>this.setState({show:"ADD"})}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
              {this.state.notes.map((note,i)=>{
                return <div key={note.title+i} className="projectDashboardNotes__notes">
                           <div  className="title">

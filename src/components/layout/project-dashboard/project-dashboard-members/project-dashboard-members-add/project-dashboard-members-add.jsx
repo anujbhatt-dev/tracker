@@ -13,8 +13,8 @@ class ProjectDashboardMembersAdd extends Component {
         addedEmails:[],
         updating:false,
       }
-  
-  
+
+
       componentDidUpdate=()=>{
         if(this.state.loading && this.state.search.length>4){
           axios.get(`/v1/user/${this.state.search}/${this.state.page}`).then(res=>{
@@ -40,9 +40,9 @@ class ProjectDashboardMembersAdd extends Component {
         this.props.updateMembers(this.state.members);
         this.props.modalHandler();
       }
-  
-  
-  
+
+
+
       memberAddHandler=(member)=>{
         member.authority="SOLDIER"
         this.setState(state=>{
@@ -53,8 +53,8 @@ class ProjectDashboardMembersAdd extends Component {
           }
         });
       }
-  
-  
+
+
       memberRemoveHandler=(email,index)=>{
         let members= [...this.state.members];
         let addedEmails=[...this.state.addedEmails];
@@ -68,8 +68,8 @@ class ProjectDashboardMembersAdd extends Component {
           }
         });
       }
-  
-  
+
+
       authorityChangeHandler=(index,authority)=>{
         let members= [...this.state.members];
         members[index].authority=authority;
@@ -79,15 +79,16 @@ class ProjectDashboardMembersAdd extends Component {
         });
       }
 
-  
-  
-  
-  
+
+
+
+
       render(){
         return (
           <>
              {/* members */}
-             <button onClick={this.addMembers}>ADD</button>
+
+            <div className="projectDashboardMember">
 
             <div className="createProjectMember">
                  <input onChange={e=>{ this.setState({search:e.target.value});if(e.target.value.length>4)this.setState({loading:true,data:[],page:0}) }} value={this.state.search}   placeholder="search" className="createProjectMember__box" type="text"/>
@@ -107,7 +108,7 @@ class ProjectDashboardMembersAdd extends Component {
                     <button className="createProjectMember__result_btn" disabled={this.state.page+1>=this.state.totalPages} onClick={()=>this.setState((state)=>{return {page:state.page+1,loading:true}})} >Load More</button>
                  </div>
             </div>
-  
+
             {/* added */}
             <div className="createProjectAdded">
             <input placeholder="Find a SOLDIER" className="createProjectMember__box" type="text"/>
@@ -125,7 +126,7 @@ class ProjectDashboardMembersAdd extends Component {
                     return <div className="createProjectMember__result_item">
                                <figure className="createProjectMember__result_item-fig">
                                   <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
-                                 
+
                                   <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                                </figure>
                                <div className="createProjectMember__result_item createProjectMember__result_item-col2">
@@ -168,11 +169,13 @@ class ProjectDashboardMembersAdd extends Component {
                 }})}
                 </div>
             </div>
+          </div>
         </div>
+        <button style={{marginLeft:"2rem"}} className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={this.addMembers}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
         </>
         )
       }
     }
-  
+
 
 export default ProjectDashboardMembersAdd;

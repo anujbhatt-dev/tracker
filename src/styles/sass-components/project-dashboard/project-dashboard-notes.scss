@@ -82,11 +82,18 @@
            padding-right: .5rem;
            font-size: 2rem;
          }
+         & .fa-plus{
+           color: $color-ppm-secondary;
+           padding-right: .5rem;
+           font-size: 2rem;
+         }
          &:hover{
            background: rgba($color-grey,.5);
          }
       }
-
+      &-plus{
+        margin: 1rem;
+      }
       &-title,&-description,&-btn{
         font-size: 1.2rem;
         &::placeholder{
