@@ -8,8 +8,8 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
 
     state={
       members:[
-       
-        
+
+
       ],
       show:false,
       selectedNote:{},
@@ -40,7 +40,7 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
     }
 
     selectedOnChangeHandler=(e)=>{
-        
+
       let newNote= {... this.state.selectedNote};
 
       newNote[e.target.name]=e.target.value;
@@ -50,7 +50,7 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
 
 
     newOnChangeHandler=(e)=>{
-        
+
       let newNote= {... this.state.newNote};
 
       newNote[e.target.name]=e.target.value;
@@ -66,7 +66,7 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
 
     updateNoteSubmitHandler=(e)=>{
       e.preventDefault();
-          
+
       let newNotes=[...this.state.notes];
       newNotes[this.state.selectedIndex]=this.state.selectedNote;
 
@@ -84,17 +84,17 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
     }
 
 
-   
+
     updateMembers=(addedMembers)=>{
      // let newMembers=[...this.state.members];
-      
+
       let newMembers=[];
 
       // for each (var item in obj) {
       //   sum += item;
       // }
 
-      
+
       addedMembers.forEach(member=>{
         console.log(member);
 
@@ -107,18 +107,24 @@ console.log(newMembers)
       this.setState({members:newMembers});
     }
 
-    
+
 
     render(){
 
       return (
          <div className="projectDashboardNotes">
-           <button onClick={()=>this.setState({show:"ADD"})}>ADD</button>
+             <button className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={()=>this.setState({show:"ADD"})}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
              {this.state.members.map((member,i)=>{
-               return <div key={member.user.email+i} className="projectDashboardNotes__notes">
-                          <div  className="title">
-                            <div className="title__text">{member.user.email}</div>
-                                <div onClick={()=>this.modalHandler(member,i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+               return <div key={member.user.email+i} className="projectDashboardNotes__notes ">
+                          <div  className="projectDashboardMember__member">
+                            <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
+                            <div className="projectDashboardMember__member_textWrapper">
+                                <div className="projectDashboardMember__member_text">{member.user.email}</div>
+                                <div className="projectDashboardMember__member_text">{member.user.firstName} {member.user.lastName}</div>
+                                <div className="projectDashboardMember__member_text">{member.user.authority}</div>
+                            </div>
+                            <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {member.user.addedOn}</div>
+                            <div onClick={()=>this.modalHandler(member,i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
                           </div>
                        </div>
              })}
@@ -144,7 +150,7 @@ console.log(newMembers)
     }
   }
 
-  
+
 
 
  export default ProjectDashboardMembers;

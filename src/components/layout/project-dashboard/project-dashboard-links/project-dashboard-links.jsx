@@ -20,9 +20,9 @@ import Modal from "../../../../UI/modal";
       selectedIndex:-1,
     }
 
-   
+
     modalHandler=(link,i)=>{
-      
+
       this.setState({
         show:"UPDATE",
         selectedLink:{... link},
@@ -46,7 +46,7 @@ import Modal from "../../../../UI/modal";
      }
 
      selectedOnChangeHandler=(e)=>{
-        
+
       let newLink= {... this.state.selectedLink};
 
       newLink[e.target.name]=e.target.value;
@@ -56,7 +56,7 @@ import Modal from "../../../../UI/modal";
 
 
     newOnChangeHandler=(e)=>{
-        
+
       let newLink= {... this.state.newLink};
 
       newLink[e.target.name]=e.target.value;
@@ -74,9 +74,9 @@ import Modal from "../../../../UI/modal";
       e.preventDefault();
 
 
-      //axios call 
+      //axios call
       //inside then
-          
+
        let newLinks=[...this.state.links];
        newLinks[this.state.selectedIndex]=this.state.selectedLink;
 
@@ -100,8 +100,7 @@ import Modal from "../../../../UI/modal";
 
       return (
         <div className="projectDashboardNotes">
-                     <button onClick={()=>this.setState({show:"ADD"})}>ADD</button>
-
+            <button className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={()=>this.setState({show:"ADD"})}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
             {this.state.links.map((link,i)=>{
               return <div key={link.title+i} className="projectDashboardNotes__notes">
                          <div className="title">

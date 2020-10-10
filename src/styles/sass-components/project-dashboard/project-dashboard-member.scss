@@ -1,0 +1,19 @@
+.projectDashboardMember{
+  display: flex;
+  &__member{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     &_textWrapper{
+        flex-grow: 1;
+        padding-left: 2rem;
+     }
+     &_text{
+        margin-bottom: .5rem;
+     }
+     &_date{
+       align-self: flex-end;
+       padding-right: 2rem;
+     }
+  }
+}
