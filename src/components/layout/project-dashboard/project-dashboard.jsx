@@ -13,6 +13,7 @@ class ProjectDashboard extends Component{
     state={
       aside:"activities",
       members:[],
+      roadMapData:{},
     }
 
     asideHandler=(aside)=>{
@@ -30,12 +31,15 @@ class ProjectDashboard extends Component{
         }
       );
 
+      axios.get("/v1/project/"+this.props.match.params.id+"/dashboard")
+      .then(res=>{
+        console.log(res.data);
+        this.setState({roadMapData:res.data});
+      })
+
     }
 
     render(){
-      // <Switch>
-      //     <Route exact path="/projectDashboard/notes"><ProjectDashboardNotes/></Route>
-      // </Switch>
 
       const projectId= this.props.match.params.id;
       return (
@@ -46,7 +50,7 @@ class ProjectDashboard extends Component{
                       <Switch>
 
                     <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap projectId={projectId}/></Route>
-                    <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap data={this.state.roadMapData} projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:id/notes"><ProjectDashboardNotes projectId={projectId}/></Route>
 

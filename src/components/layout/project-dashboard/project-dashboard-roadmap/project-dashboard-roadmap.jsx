@@ -34,6 +34,20 @@ import ProjectLabel from "./node-labels/project-label";
       ]
     }
 
+
+
+    componentDidMount=()=>{
+        
+      this.setState({data:this.props.data});
+
+
+      //convert data to element
+
+    }
+
+
+
+
     render(){
        
   

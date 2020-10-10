@@ -84,11 +84,7 @@ import Modal from "../../../../UI/modal";
 
     updateLinkSubmitHandler=(e)=>{
       e.preventDefault();
-
-
-      //axios call
-      //inside then
-
+      
        let newLinks=[...this.state.links];
        newLinks[this.state.selectedIndex]=this.state.selectedLink;
 
