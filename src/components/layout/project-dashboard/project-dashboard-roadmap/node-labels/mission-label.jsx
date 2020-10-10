@@ -4,7 +4,7 @@ class MissionLabel extends Component {
     render() {
         return (
             <div>
-                
+                Mission
             </div>
         )
     }

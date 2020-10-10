@@ -6,7 +6,7 @@ import ProjectDashboardRoadmap from '../project-dashboard-roadmap'
         return (
             <div>
                 
-                Project Name
+                Project 
                 <button onClick={()=>alert("PRESSED")} >PRESS</button>
 
             </div>

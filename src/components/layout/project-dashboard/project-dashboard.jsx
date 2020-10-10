@@ -13,7 +13,6 @@ class ProjectDashboard extends Component{
     state={
       aside:"activities",
       members:[],
-      roadMapData:{},
     }
 
     asideHandler=(aside)=>{
@@ -47,9 +46,9 @@ class ProjectDashboard extends Component{
                  <div className="projectDashboard__col1">
                       <ProjectDashboardNav projectId={projectId}/>
 
-                      <Switch>
+                      {this.state.roadMapData?<Switch>
 
-                    <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap data={this.state.roadMapData} projectId={projectId}/></Route>
                     <Route exact path="/projectDashboard/:id/roadMap"><ProjectDashboardRoadmap data={this.state.roadMapData} projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:id/notes"><ProjectDashboardNotes projectId={projectId}/></Route>
@@ -57,7 +56,7 @@ class ProjectDashboard extends Component{
                      <Route exact path="/projectDashboard/:id/links"><ProjectDashboardLinks projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:id/members"><ProjectDashboardMembers  projectId={projectId}/></Route>
-                        </Switch>
+                        </Switch>:null}
 
 
                  </div>
