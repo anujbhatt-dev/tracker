@@ -5,7 +5,7 @@ import React, { Component } from 'react'
         return (
             <div>
                 Leaf
-                <button onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props.data)} >PRESS</button>
+                <button onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props)} >PRESS</button>
 
             </div>
         )

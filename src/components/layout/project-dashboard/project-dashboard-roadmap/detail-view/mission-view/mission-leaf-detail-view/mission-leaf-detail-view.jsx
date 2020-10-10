@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import MissionAddMission from '../mission-add-mission';
+
 
  class MissionLeafDetailView extends Component {
 
@@ -10,12 +12,13 @@ import React, { Component } from 'react'
 
     render() {
 
-        console.log(this.props)
+       // console.log(this.props)
 
         return (
             <div>
                 Mission Leaf Detail View
-                {this.props.data.projectId}
+                <MissionAddMission/>
+                {this.props.missionId}
             </div>
         )
     }

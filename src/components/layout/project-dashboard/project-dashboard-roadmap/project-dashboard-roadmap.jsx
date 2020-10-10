@@ -4,9 +4,10 @@ import ProjectLabel from "./node-labels/project-label";
 import MissionLabel from "./node-labels/mission-label";
 import MissionLeafLabel from "./node-labels/mission-leaf-label";
 import Modal from "../../../../UI/modal";
-import ProjectDetailView from "./detail-view/project-detail-view"
-import MissionDetailView from "./detail-view/mission-detail-view"
-import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
+
+import MissionLeafDetailView from "./detail-view/mission-view/mission-leaf-detail-view/mission-leaf-detail-view"
+import MissionDetailView from "./detail-view/mission-view/mission-detail-view/mission-detail-view";
+import ProjectDetailView from "./detail-view/project-detail-view/project-detail-view";
 
   class ProjectDashboardRoadmap extends Component{
 
@@ -37,11 +38,12 @@ import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
      let y =100
 
      projectNode.position={x:x,y:y};
-     projectNode.data={label:<ProjectLabel modalHandler={this.modalHandler} projectNode={projectNode} />}
+     projectNode.data={label:<ProjectLabel modalHandler={this.modalHandler}  {...projectNode} />}
 
      let element=[projectNode];
      
      let level=0;
+     let flag=true;
 
      while(queue.length!=0){
         
@@ -53,8 +55,16 @@ import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
                   y+=200;
                   x=0;
                 }
-                
-                x+=100;
+                if(flag)
+                {
+                  flag=!flag
+                y+=50;
+              }else{
+                flag=!flag
+              y-=50;
+            }
+
+            x+=100;
 
             node.children.forEach(child=>{
               queue.push(child);
@@ -63,7 +73,7 @@ import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
             if(node.level==1)
               {
                 node.position={x:x,y:y};
-                node.data={label:<MissionLabel  modalHandler={this.modalHandler} data={node}/>}
+                node.data={label:<MissionLabel  modalHandler={this.modalHandler} {...node} />}
                 node.type='input';
                 element.push({
                   ...node
@@ -77,7 +87,7 @@ import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
            {   node.position={x:x,y:y};
            node.type='input';
 
-              node.data={label:<MissionLabel  modalHandler={this.modalHandler} data={node}/>}
+              node.data={label:<MissionLabel  modalHandler={this.modalHandler} {...node}/>}
 
               element.push({
                 ...node
@@ -87,7 +97,7 @@ import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
               node.position={x:x,y:y};
               node.type='output';
 
-              node.data={label:<MissionLeafLabel  modalHandler={this.modalHandler} data={node}/>}
+              node.data={label:<MissionLeafLabel  modalHandler={this.modalHandler} {...node}/>}
 
               element.push({
                 ...node
@@ -125,9 +135,9 @@ this.setState({elements:element})
       return (
          <>
          {this.state.modalShow?
-           this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView data={this.state.detailData}/></Modal>
-           :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView data={this.state.detailData}/></Modal>
-           :<Modal modalHandler={this.modalCloseHandler}><MissionLeafDetailView data={this.state.detailData}/></Modal>
+           this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView {...this.state.detailData}/></Modal>
+           :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView {...this.state.detailData}/></Modal>
+           :<Modal modalHandler={this.modalCloseHandler}><MissionLeafDetailView {...this.state.detailData}/></Modal>
            :null}
          <div style={{ height: 1000 }} className="projectDashboardRoadmap">
               <ReactFlow  elements={this.state.elements} />

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
- class ProjectDetailView extends Component {
+ class MissionAddMission extends Component {
     render() {
         return (
             <div>
-                Project Detail View 
+                ADD mISSIon
             </div>
         )
     }
 }
 
-export default ProjectDetailView
+export default MissionAddMission;
