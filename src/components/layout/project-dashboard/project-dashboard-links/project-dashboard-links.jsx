@@ -66,8 +66,20 @@ import Modal from "../../../../UI/modal";
 
 
     newLinkSubmitHandler=(e)=>{
-      console.log(this.state);
       e.preventDefault();
+
+
+      let newLink=[...this.state.links];
+      
+
+      axios.post("/v1/project/"+this.props.projectId+"/link",this.state.newLink)
+      .then(res=>{
+        this.setState(state=>
+          {return {links:[res.data].concat(state.links)};
+          }
+        )}
+      )
+
     }
 
     updateLinkSubmitHandler=(e)=>{
