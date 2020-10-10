@@ -4,7 +4,7 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-                
+                Project Detail View 
             </div>
         )
     }

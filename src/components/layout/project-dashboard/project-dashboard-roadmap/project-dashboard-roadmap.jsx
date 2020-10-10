@@ -3,37 +3,17 @@ import ReactFlow,{ReactFlowProps} from "react-flow-renderer";
 import ProjectLabel from "./node-labels/project-label";
 import MissionLabel from "./node-labels/mission-label";
 import MissionLeafLabel from "./node-labels/mission-leaf-label";
-
-
+import Modal from "../../../../UI/modal";
+import ProjectDetailView from "./detail-view/project-detail-view"
+import MissionDetailView from "./detail-view/mission-detail-view"
+import MissionLeafDetailView from "./detail-view/mission-leaf-detail-view"
 
   class ProjectDashboardRoadmap extends Component{
 
 
     state={
-      elements: [
-        {
-          id: '1',
-          type: 'input', // input node
-          data: { label: <ProjectLabel/> },
-          position: { x: 250, y: 25 },
-        },
-        // default node
-        {
-          id: '2',
-          // you can also pass a React component as a label
-          data: { label: <div>Default Node</div> },
-          position: { x: 100, y: 125 },
-        },
-        {
-          id: '3',
-          type: 'output', // output node
-          data: { label: 'Output Node' },
-          position: { x: 250, y: 250 },
-        },
-        // animated edge
-        { id: 'e1-2', source: '1', target: '2', animated: true },
-        { id: 'e2-3', source: '1', target: '3' },
-      ]
+     modalShow:false,
+     detailData:{},
     }
 
 
@@ -57,7 +37,7 @@ import MissionLeafLabel from "./node-labels/mission-leaf-label";
      let y =100
 
      projectNode.position={x:x,y:y};
-     projectNode.data={label:<ProjectLabel projectNode={projectNode} />}
+     projectNode.data={label:<ProjectLabel modalHandler={this.modalHandler} projectNode={projectNode} />}
 
      let element=[projectNode];
      
@@ -83,7 +63,8 @@ import MissionLeafLabel from "./node-labels/mission-leaf-label";
             if(node.level==1)
               {
                 node.position={x:x,y:y};
-                node.data={label:<MissionLabel data={node}/>}
+                node.data={label:<MissionLabel  modalHandler={this.modalHandler} data={node}/>}
+                node.type='input';
                 element.push({
                   ...node
                 });
@@ -94,7 +75,9 @@ import MissionLeafLabel from "./node-labels/mission-leaf-label";
               if(node.children && node.children.length!=0)
 
            {   node.position={x:x,y:y};
-              node.data={label:<MissionLabel data={node}/>}
+           node.type='input';
+
+              node.data={label:<MissionLabel  modalHandler={this.modalHandler} data={node}/>}
 
               element.push({
                 ...node
@@ -102,7 +85,9 @@ import MissionLeafLabel from "./node-labels/mission-leaf-label";
               element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id, animated: true})
             }else{
               node.position={x:x,y:y};
-              node.data={label:<MissionLeafLabel data={node}/>}
+              node.type='output';
+
+              node.data={label:<MissionLeafLabel  modalHandler={this.modalHandler} data={node}/>}
 
               element.push({
                 ...node
@@ -119,26 +104,35 @@ import MissionLeafLabel from "./node-labels/mission-leaf-label";
 
      }
 
-     console.log(element);
-
 this.setState({elements:element})
 
     }
 
 
+    modalHandler=(value,data)=>{
+
+      this.setState({modalShow:value,detailData:data});
+    }
+
+    modalCloseHandler=()=>{
+      this.setState({modalShow:false});
+    }
+
 
 
     render(){
        
-  
-      
-
       return (
+         <>
+         {this.state.modalShow?
+           this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView data={this.state.detailData}/></Modal>
+           :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView data={this.state.detailData}/></Modal>
+           :<Modal modalHandler={this.modalCloseHandler}><MissionLeafDetailView data={this.state.detailData}/></Modal>
+           :null}
          <div style={{ height: 1000 }} className="projectDashboardRoadmap">
-           123
-               <ReactFlow  elements={this.state.elements} />
-           
-         </div>
+              <ReactFlow  elements={this.state.elements} />
+          </div>
+         </>
       )
     }
   }

@@ -4,7 +4,7 @@ class MissionDetailView extends Component {
     render() {
         return (
             <div>
-                
+                Mission Detail View
             </div>
         )
     }

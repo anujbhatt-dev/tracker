@@ -5,6 +5,8 @@ class MissionLabel extends Component {
         return (
             <div>
                 Mission
+                <button onClick={()=>this.props.modalHandler("MISSION",this.props.data)} >PRESS</button>
+
             </div>
         )
     }
