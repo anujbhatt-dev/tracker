@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import ReactFlow,{ReactFlowProps} from "react-flow-renderer";
+import ReactFlow,{ReactFlowProps, MiniMap,Controls,ReactFlowProvider} from "react-flow-renderer";
 import ProjectLabel from "./node-labels/project-label";
 import MissionLabel from "./node-labels/mission-label";
 import MissionLeafLabel from "./node-labels/mission-leaf-label";
@@ -140,7 +140,21 @@ this.setState({elements:element})
            :<Modal modalHandler={this.modalCloseHandler}><MissionLeafDetailView {...this.state.detailData}/></Modal>
            :null}
          <div style={{ height: 1000 }} className="projectDashboardRoadmap">
-              <ReactFlow  elements={this.state.elements} />
+         <ReactFlowProvider>
+              <ReactFlow  elements={this.state.elements}>
+              <Controls />
+              <MiniMap
+                    nodeColor={(node) => {
+                      switch (node.type) {
+                        case 'input': return 'red';
+                        case 'default': return '#00ff00';
+                        case 'output': return 'rgb(0,0,255)';
+                        default: return '#eee';
+                      }
+                    }}
+                  />
+             </ReactFlow>
+             </ReactFlowProvider>
           </div>
          </>
       )
