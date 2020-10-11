@@ -52,19 +52,19 @@ import ProjectDetailView from "./detail-view/project-detail-view/project-detail-
              if(level!=node.level)
                 {
                   level=node.level;
-                  y+=200;
+                  y+=500;
                   x=0;
                 }
                 if(flag)
                 {
                   flag=!flag
-                y+=50;
+                y+=150;
               }else{
                 flag=!flag
-              y-=50;
+              y-=150;
             }
 
-            x+=100;
+            x+=200;
 
             node.children.forEach(child=>{
               queue.push(child);
