@@ -8,6 +8,11 @@ import MissionDashboard from "./mission-dashboard/mission-dashboard"
 import Projects from "./projects/projects"
 
 
+// to be remove after use!!!
+import DetailView from "./static/detail-view"
+import AddMission from "./static/add-mission"
+
+
   class Layout extends Component{
 
     render(){
@@ -25,7 +30,12 @@ import Projects from "./projects/projects"
                      <Route  path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboard authenticated={this.props.authenticated}/></Route>
                     <Route  path="/projectDashboard/:id"><ProjectDashboard authenticated={this.props.authenticated}/></Route>
 
-                      </Switch>
+                    </Switch>
+
+                    <h1>Detail view</h1>
+                    <DetailView/>
+                    <h1>Add mission</h1>
+                    <AddMission/>
                </div>
       )
     }
