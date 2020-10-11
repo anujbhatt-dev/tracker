@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProjectAddMission from './project-add-mission/project-add-mission'
+import AddMission from '../add-mission/project-add-mission'
 
 
  class ProjectDetailView extends Component {
@@ -7,7 +7,8 @@ import ProjectAddMission from './project-add-mission/project-add-mission'
         return (
             <div>
                 Project Detail View 
-                <ProjectAddMission/>
+
+                <AddMission/>
             </div>
         )
     }

@@ -4,10 +4,8 @@ import ProjectLabel from "./node-labels/project-label";
 import MissionLabel from "./node-labels/mission-label";
 import MissionLeafLabel from "./node-labels/mission-leaf-label";
 import Modal from "../../../../UI/modal";
-
-import MissionLeafDetailView from "./detail-view/mission-view/mission-leaf-detail-view/mission-leaf-detail-view"
-import MissionDetailView from "./detail-view/mission-view/mission-detail-view/mission-detail-view";
 import ProjectDetailView from "./detail-view/project-detail-view/project-detail-view";
+import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-view";
 
   class ProjectDashboardRoadmap extends Component{
 
@@ -137,11 +135,11 @@ this.setState({elements:element})
          {this.state.modalShow?
            this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView {...this.state.detailData}/></Modal>
            :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView {...this.state.detailData}/></Modal>
-           :<Modal modalHandler={this.modalCloseHandler}><MissionLeafDetailView {...this.state.detailData}/></Modal>
+           :<Modal modalHandler={this.modalCloseHandler}><MissionDetailView {...this.state.detailData}/></Modal>
            :null}
          <div style={{ height: 1000 }} className="projectDashboardRoadmap">
          <ReactFlowProvider>
-              <ReactFlow  elements={this.state.elements}>
+              <ReactFlow defaultZoom={0.5}  elements={this.state.elements}>
               <Controls />
               <MiniMap
                     nodeColor={(node) => {

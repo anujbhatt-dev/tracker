@@ -6,6 +6,7 @@ import ProjectDashboardLinks from "./project-dashboard-links/project-dashboard-l
 import ProjectDashboardRoadmap from "./project-dashboard-roadmap/project-dashboard-roadmap"
 import ProjectDashboardMembers from "./project-dashboard-members/project-dashboard-members"
 import axios from "axios"
+import ProjectMember from "./project-member"
 
 
 class ProjectDashboard extends Component{
@@ -81,18 +82,9 @@ class ProjectDashboard extends Component{
                       <div className="projectDashboard__col2_members">
                         {this.state.members
                         .map((member,i)=>
-                          <div key={member.user.email+i} className="projectDashboardNotes__notes ">
-                                     <div  className="projectDashboardMember__member">
-                                       <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
-                                       <div className="projectDashboardMember__member_textWrapper">
-                                           <div className="projectDashboardMember__member_text">{member.user.email}</div>
-                                           <div className="projectDashboardMember__member_text">{member.user.firstName} {member.user.lastName}</div>
-                                           <div className="projectDashboardMember__member_text">{member.user.authority}</div>
-                                       </div>
-                                       <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {member.user.addedOn}</div>
-                                       <div onClick={()=>this.modalHandler(member,i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                                     </div>
-                                  </div>
+
+                        <ProjectMember  member={member} />
+                        
                          )}
 
                       </div>}

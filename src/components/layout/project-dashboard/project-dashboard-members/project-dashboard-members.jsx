@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import axios from "axios"
 import Modal from "../../../../UI/modal"
 import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-dashboard-members-add"
+import ProjectMember from "./project-member"
 
 
   class ProjectDashboardMembers extends Component{
@@ -34,6 +35,8 @@ import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-
     componentDidMount=()=>{
      axios.get("/v1/project/"+this.props.projectId+"/member")
      .then(res=>{
+
+     // console.log(res.data)
     this.setState({members:res.data});
      })
 
@@ -114,20 +117,9 @@ console.log(newMembers)
       return (
          <div className="projectDashboardNotes">
              <button className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={()=>this.setState({show:"ADD"})}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
-             {this.state.members.map((member,i)=>{
-               return <div key={member.user.email+i} className="projectDashboardNotes__notes ">
-                          <div  className="projectDashboardMember__member">
-                            <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
-                            <div className="projectDashboardMember__member_textWrapper">
-                                <div className="projectDashboardMember__member_text">{member.user.email}</div>
-                                <div className="projectDashboardMember__member_text">{member.user.firstName} {member.user.lastName}</div>
-                                <div className="projectDashboardMember__member_text">{member.user.authority}</div>
-                            </div>
-                            <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {member.user.addedOn}</div>
-                            <div onClick={()=>this.modalHandler(member,i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                          </div>
-                       </div>
-             })}
+             {this.state.members.map((member,i)=>
+             <ProjectMember modalHandler={this.modalHandler} i={i}  member={member}/>
+             )}
              {this.state.show?
                 this.state.show==="ADD"?<Modal modalHandler={this.modalCloseHandler}>
              <ProjectDashboardMembersAdd modalHandler={this.modalCloseHandler} updateMembers={this.updateMembers} />

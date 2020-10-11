@@ -9,7 +9,11 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
 
 
     state={
-        progressStyle:{
+    }
+
+    render() {
+
+        let   progressStyle={
                  
             rotation: 0.25,
                  strokeLinecap: 'butt',
@@ -29,11 +33,25 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
                     transformOrigin: 'center center',
                   },
         }
-    }
 
-    render() {
 
-        console.log(this.props)
+
+        let progressValue=2;
+
+
+      if(this.props.projectInsight==null){
+
+      }else{
+            
+        progressValue=70;
+      }
+
+      if(progressValue<=40)
+      progressStyle.pathColor='red'
+      else if(progressValue<=70)
+      progressStyle.pathColor='yellow'
+
+
         
         return (
 
@@ -41,8 +59,8 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
             <div>
                 
              
-                 <CircularProgressbarWithChildren styles={buildStyles({...this.state.progressStyle})}
-                                       value={70} >
+                 <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
+                                       value={progressValue} >
 
                  Project 
                 <button onClick={()=>this.props.modalHandler("PROJECT",this.props)} >PRESS</button>

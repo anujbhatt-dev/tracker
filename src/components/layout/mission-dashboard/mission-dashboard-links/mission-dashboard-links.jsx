@@ -35,7 +35,7 @@ import Modal from "../../../../UI/modal"
     }
 
     componentDidMount=()=>{
-    //   axios.get("/v1/project/"+this.props.projectId+"/link")
+    //   axios.get("/v1/mission/"+this.props.missionId+"/link")
     //   .then(res=>{
     //  this.setState({links:res.data});
     //   })

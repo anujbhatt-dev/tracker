@@ -5,7 +5,13 @@ class MissionLabel extends Component {
 
 
     state={
-        progressStyle:{
+      
+    }
+
+    render() {
+
+
+     let   progressStyle={
                  
             rotation: 0.25,
                  strokeLinecap: 'butt',
@@ -25,13 +31,30 @@ class MissionLabel extends Component {
                     transformOrigin: 'center center',
                   },
         }
-    }
 
-    render() {
+
+
+        let progressValue=2;
+
+
+      if(this.props.missionInsight==null){
+
+      }else{
+            
+        progressValue=70;
+      }
+
+      if(progressValue<=40)
+      progressStyle.pathColor='red'
+      else if(progressValue<=70)
+      progressStyle.pathColor='yellow'
+
+
+
         return (
             <div>
-                <CircularProgressbarWithChildren  styles={buildStyles({...this.state.progressStyle})}
-                                       value={70} >
+                <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
+                                       value={progressValue} >
 
                   Mission
                 <button onClick={()=>this.props.modalHandler("MISSION",this.props)} >PRESS</button>

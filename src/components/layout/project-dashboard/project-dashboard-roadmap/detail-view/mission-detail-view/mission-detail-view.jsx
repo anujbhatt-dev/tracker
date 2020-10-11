@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import MissionAddMission from '../mission-add-mission';
+import AddMission from '../add-mission/project-add-mission';
 
 
 class MissionDetailView extends Component {
     render() {
         return (
             <div>
-                <MissionAddMission/>
+                <AddMission/>
                 Mission Detail View
             </div>
         )

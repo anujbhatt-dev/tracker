@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
- class MissionAddMission extends Component {
+ class AddMission extends Component {
     render() {
         return (
             <div>
-                ADD mISSIon
+                ADD MISSIon FORM
             </div>
         )
     }
 }
 
-export default MissionAddMission;
+export default AddMission;
