@@ -43,8 +43,8 @@ class ProjectDashboard extends Component{
 
       const projectId= this.props.match.params.id;
       return (
-           <div className="projectDashboard">
-                 <div className="projectDashboard__col1">
+           <div style={{background:"white"}} className="projectDashboard">
+                 <div style={{background:"grey"}} className="projectDashboard__col1">
                       <ProjectDashboardNav projectId={projectId}/>
 
                       {this.state.roadMapData?<Switch>
