@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import Modal from "../../../UI/modal"
-
+import AddMission from "./add-mission"
 
   class DetailView extends Component{
     state={
@@ -69,6 +69,8 @@ import Modal from "../../../UI/modal"
                       <div>Links: <strong>44</strong></div>
                  </div>
               </div>
+              <i className="fa fa-arrow-right detailView__arrow"></i>
+              <AddMission/>
             </div>
 
         </Modal>

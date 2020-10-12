@@ -13,9 +13,9 @@ import React, {Component} from "react"
              <hr className="hr"/>
              <div className="AddMission__wrapper">
                 <div className="AddMission__col1">
-                   <div className="AddMission__subHead">description</div>
-                   <textarea className="AddMission__col1_textarea" name="" id="" cols="30" rows="10"></textarea><br/>
-                   <div className="AddMission__subHead">Name</div>
+                    <div className="AddMission__subHead">description</div>
+                    <textarea className="AddMission__col1_textarea" name="" id="" cols="30" rows="10"></textarea><br/>
+                    <div className="AddMission__subHead">Name</div>
                     <input className="AddMission__col1_input" type="text"/>
                 </div>
                 <div className="AddMission__col1">
@@ -25,7 +25,7 @@ import React, {Component} from "react"
                     <input className="AddMission__col1_input" type="text"/>
                     <button>Go</button>
                 </div>
-                
+
              </div>
          </div>
       )
