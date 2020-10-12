@@ -64,10 +64,12 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
                  <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
                                        value={progressValue} >
 
-                 Project 
-                <button onClick={()=>this.props.modalHandler("PROJECT",{...this.props})} >PRESS</button>
+                 <span>{progressValue}%</span> 
+                 <i onClick={()=>this.props.modalHandler("PROJECT",{...this.props})} class="fa fa-chevron-right fa-3x"></i>
                  
                  <NavLink  to={"/projectDashboard/"+this.props.projectId}>-></NavLink>
+                
+
 
                  </CircularProgressbarWithChildren>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AddMission from '../add-mission/add-mission';
 import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from 'react-circular-progressbar';
+import { NavLink } from 'react-router-dom'
 
 
 class MissionDetailView extends Component {
@@ -66,7 +67,8 @@ class MissionDetailView extends Component {
                            <div className="detailView__col1_row1-tech_count">{this.props.category}</div>
                        </div>
                     </div>
-  
+                    <br/><hr/><br/><br/>
+
                     <div className="detailView__col1_row2">
                         <div>Added By: <strong>{this.props.addedBy}</strong></div>
                         <div>Starting Date: <strong>{this.props.sartingDate}</strong></div>
@@ -78,7 +80,8 @@ class MissionDetailView extends Component {
                  </div>
                 
                 </div>
-  
+                <br/><hr/><br/><br/>
+
                 <div  className="detailViewRow">
                    <div className="detailView__description">
                       <div className="detailView__description_head">
@@ -101,7 +104,12 @@ class MissionDetailView extends Component {
                         <div>Links: <strong>{this.props.linkCount}</strong></div>
                    </div>
                 </div>
-                <i className="fa fa-arrow-right detailView__arrow"></i>
+                {this.props.children.length===0?
+                 <NavLink to={"/projectDashboard/"+this.props.projectId+"/mission/"+this.props.missionId}>
+                    <i className="fa fa-plane detailView__arrow"></i>
+                 </NavLink>
+              :null}
+                
                 <AddMission  projectId={this.props.projectId} missionId={this.props.missionId} type={"mission"}/>
               </div>
           )

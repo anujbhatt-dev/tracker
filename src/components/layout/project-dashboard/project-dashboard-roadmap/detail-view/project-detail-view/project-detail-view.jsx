@@ -67,7 +67,7 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                            <div className="detailView__col1_row1-tech_count">56</div>
                        </div>
                     </div>
-  
+                     <br/><hr/><br/><br/>
                     <div className="detailView__col1_row2">
                         <div>Added By: <strong>anuj bhatt</strong></div>
                         <div>Starting Date: <strong>02/12/2020</strong></div>
@@ -78,7 +78,8 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                     </div>
                  </div>
                 </div>
-  
+                <br/><hr/><br/><br/>
+
                 <div  className="detailViewRow">
                    <div className="detailView__description">
                       <div className="detailView__description_head">

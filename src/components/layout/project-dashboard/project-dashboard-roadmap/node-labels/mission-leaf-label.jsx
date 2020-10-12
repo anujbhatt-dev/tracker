@@ -78,11 +78,9 @@ import { NavLink } from 'react-router-dom';
                 <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
                                        value={progressValue} >
 
-                  Leaf
-                <button onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props)} >PRESS</button>
-               
-               <button onClick={()=>alert(missionId)} >o</button>
-                <NavLink to={"/projectDashboard/"+this.props.projectId+"/mission/"+missionId}>-></NavLink>
+                <i onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props)} class="fa fa-chevron-right fa-3x"></i>
+              
+                {/* <NavLink to={"/projectDashboard/"+this.props.projectId+"/mission/"+missionId}>-></NavLink> */}
 
                  </CircularProgressbarWithChildren>
 

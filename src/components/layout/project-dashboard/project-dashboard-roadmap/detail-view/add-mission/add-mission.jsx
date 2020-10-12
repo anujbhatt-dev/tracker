@@ -129,7 +129,13 @@ import axios from "axios";
     createMission=()=>{
          
 
+      if(this.props.type==="MISSION")
       axios.post("/v1/mission/level/n",{...this.state},{params:{id:this.props.missionId}})
+      .then(res=>
+        console.log(res.data))
+
+      else
+      axios.post("/v1/mission/level/1",{...this.state},{params:{id:this.props.missionId}})
       .then(res=>
         console.log(res.data))
 

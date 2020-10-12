@@ -56,8 +56,7 @@ class MissionLabel extends Component {
                 <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
                                        value={progressValue} >
 
-                  Mission
-                <button onClick={()=>this.props.modalHandler("MISSION",this.props)} >PRESS</button>
+<i onClick={()=>this.props.modalHandler("MISSION",this.props)} class="fa fa-chevron-right fa-3x"></i>
                 
                  </CircularProgressbarWithChildren>
             </div>

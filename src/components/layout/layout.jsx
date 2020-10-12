@@ -11,6 +11,7 @@ import Projects from "./projects/projects"
 // to be remove after use!!!
 import DetailView from "./static/detail-view"
 import AddMission from "./static/add-mission"
+import Modal from "../../UI/modal"
 
 
   class Layout extends Component{
@@ -31,11 +32,11 @@ import AddMission from "./static/add-mission"
                     <Route  path="/projectDashboard/:id"><ProjectDashboard authenticated={this.props.authenticated}/></Route>
 
                     </Switch>
-
-                    {/* <h1>Detail view</h1>
+                   
+                   {/* <Modal>
                     <DetailView/>
-                    <h1>Add mission</h1>
-                    <AddMission/> */}
+                    </Modal> */}
+
                </div>
       )
     }
