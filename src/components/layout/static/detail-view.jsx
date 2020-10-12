@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import Modal from "../../../UI/modal"
 import AddMission from "./add-mission"
+import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from 'react-circular-progressbar';
+
 
   class DetailView extends Component{
     state={
@@ -15,10 +17,38 @@ import AddMission from "./add-mission"
 
     render(){
 
+        let   progressStyle={
+                 
+            rotation: 0.25,
+                 strokeLinecap: 'butt',
+                 textSize: '16px',
+               pathTransitionDuration: 0.5,
+               pathColor: `rgba(62, 152, 199, 70)`,
+                textColor: '#f88',
+                trailColor: '#d6d6d6',
+                backgroundColor: '#3e98c7',
+                trail: {
+                    // Trail color
+                    stroke: '#d6d6d6',
+                    // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                    strokeLinecap: 'butt',
+                    // Rotate the trail
+                    transform: 'rotate(0.25turn)',
+                    transformOrigin: 'center center',
+                  },
+        }
+
+
+
+        let progressValue=2;
+
+
       return (
         <Modal show={this.state.show} modalHandler={this.modalHandler}>
             <div className="detailView">
               <div className="detailViewRow">
+
+             
 
                <div className="detailView__col1">
                   <div className="detailView__col1_row1">
@@ -46,21 +76,26 @@ import AddMission from "./add-mission"
                       <div>Ending Date: <strong>02/12/2020</strong></div>
                   </div>
                </div>
-               <div className="detailView__col2">
-                   circle
-               </div>
+            
               </div>
 
               <div  className="detailViewRow">
                  <div className="detailView__description">
+                   
                     <div className="detailView__description_head">
                        discription
                     </div>
                     <div className="detailView__description_des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt temporibus rerum nemo unde aliquid maiores accusamus omnis delectus, corporis vitae, praesentium, incidunt sint dolorem facere quidem hic placeat nihil doloribus repudiandae magnam voluptatum similique officiis illum nostrum ducimus. Provident id unde ipsam deserunt ad sequi eligendi officia facilis, ullam asperiores!</div>
                  </div>
                  <div className="detailView__elements">
+                     
+                 <div className="detailView__description_head">
+                        <CircularProgressbar  styles={buildStyles({...progressStyle})}
+                                       value={progressValue}/>
+                      </div>
+
                       <div className="detailView__description_head">
-                        Elements
+                        Elemetns
                       </div>
                       <div>members: <strong>44</strong></div>
                       <div>objectives: <strong>44</strong></div>
@@ -68,8 +103,12 @@ import AddMission from "./add-mission"
                       <div>Notes: <strong>44</strong></div>
                       <div>Links: <strong>44</strong></div>
                  </div>
+                 
               </div>
+              
+            
               <i className="fa fa-arrow-right detailView__arrow"></i>
+
               <AddMission/>
             </div>
 

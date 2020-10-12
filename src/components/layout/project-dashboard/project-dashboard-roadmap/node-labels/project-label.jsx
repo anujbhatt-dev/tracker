@@ -51,9 +51,11 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
       else if(progressValue<=70)
       progressStyle.pathColor='yellow'
 
+      console.log("----- "+JSON.stringify(this.props))
 
         
         return (
+
 
            
             <div>
@@ -63,7 +65,7 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
                                        value={progressValue} >
 
                  Project 
-                <button onClick={()=>this.props.modalHandler("PROJECT",this.props)} >PRESS</button>
+                <button onClick={()=>this.props.modalHandler("PROJECT",{...this.props})} >PRESS</button>
                  
                  <NavLink  to={"/projectDashboard/"+this.props.projectId}>-></NavLink>
 
