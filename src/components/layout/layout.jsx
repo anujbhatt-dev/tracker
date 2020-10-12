@@ -33,9 +33,9 @@ import Modal from "../../UI/modal"
 
                     </Switch>
                    
-                   {/* <Modal>
+                   <Modal>
                     <DetailView/>
-                    </Modal> */}
+                    </Modal>
 
                </div>
       )
