@@ -36,7 +36,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
      let y =100
 
      projectNode.position={x:x,y:y};
-     projectNode.data={label:<ProjectLabel modalHandler={this.modalHandler}  {...projectNode} />}
+     projectNode.data={label:<ProjectLabel  modalHandler={this.modalHandler}  {...projectNode} />}
 
      let element=[projectNode];
      
@@ -71,7 +71,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
             if(node.level==1)
               {
                 node.position={x:x,y:y};
-                node.data={label:<MissionLabel  modalHandler={this.modalHandler} {...node} />}
+                node.data={label:<MissionLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node} />}
                 node.type='input';
                 element.push({
                   ...node
@@ -85,7 +85,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
            {   node.position={x:x,y:y};
            node.type='input';
 
-              node.data={label:<MissionLabel  modalHandler={this.modalHandler} {...node}/>}
+              node.data={label:<MissionLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node}/>}
 
               element.push({
                 ...node
@@ -95,7 +95,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
               node.position={x:x,y:y};
               node.type='output';
 
-              node.data={label:<MissionLeafLabel  modalHandler={this.modalHandler} {...node}/>}
+              node.data={label:<MissionLeafLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node}/>}
 
               element.push({
                 ...node
@@ -133,9 +133,9 @@ this.setState({elements:element})
       return (
          <>
          {this.state.modalShow?
-           this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView {...this.state.detailData}/></Modal>
-           :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView {...this.state.detailData}/></Modal>
-           :<Modal modalHandler={this.modalCloseHandler}><MissionDetailView {...this.state.detailData}/></Modal>
+           this.state.modalShow==="PROJECT"?<Modal modalHandler={this.modalCloseHandler}><ProjectDetailView projectId={this.props.projectId} {...this.state.detailData}/></Modal>
+           :this.state.modalShow==="MISSION"?<Modal modalHandler={this.modalCloseHandler}><MissionDetailView projectId={this.props.projectId} {...this.state.detailData}/></Modal>
+           :<Modal modalHandler={this.modalCloseHandler}><MissionDetailView projectId={this.props.projectId} {...this.state.detailData}/></Modal>
            :null}
          <div style={{ height: 1000 }} className="projectDashboardRoadmap">
          <ReactFlowProvider>

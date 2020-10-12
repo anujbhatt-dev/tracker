@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import Modal from "../../../../UI/modal"
+import axios from "axios"
 
 
   class MissionDashboardNotes extends Component{
@@ -34,10 +35,10 @@ import Modal from "../../../../UI/modal"
     }
 
     componentDidMount=()=>{
-    //  axios.get("/v1/project/"+this.props.projectId+"/note")
-    //  .then(res=>{
-    // this.setState({notes:res.data});
-    //  })
+     axios.get("/v1/project/"+this.props.projectId+"/note")
+     .then(res=>{
+    this.setState({notes:res.data});
+     })
 
     }
 

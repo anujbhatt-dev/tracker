@@ -23,7 +23,7 @@ class MissionDashboard extends Component{
     }
 
     componentDidMount=()=>{
-      axios.get("/v2/mission/"+this.props.match.params.missionId+"/members")
+      axios.get("/v2/mission/"+this.props.match.params.missionId+"/member")
       .then(res=>{
         this.setState({members:res.data})
       })
@@ -35,8 +35,9 @@ class MissionDashboard extends Component{
       // </Switch>
 
       const projectId= this.props.match.params.projectId;
-      const missionId= this.props.match.params.missionId;
-      console.log(this.props)
+      const missionId= this.props.match.params.missionId;//.replace("$",".");
+
+      console.log(this.props.match.params)
 
       return (
            <div className="projectDashboard">
@@ -45,12 +46,12 @@ class MissionDashboard extends Component{
                       
                       <Switch>
                         
-                             <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective projectId={projectId}/></Route>
-                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/objective"><MissionDashboardObjective projectId={projectId}/></Route>
+                             <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/objective"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
 
-                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/notes"><MissionDashboardNotes projectId={projectId}/></Route>
+                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/notes"><MissionDashboardNotes missionId={missionId} projectId={projectId}/></Route>
 
-                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/links"><MissionDashboardLinks projectId={projectId}/></Route>
+                       <Route exact path="/projectDashboard/:projectId/mission/:missionId/links"><MissionDashboardLinks missionId={missionId} projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/members">Member</Route>
                         </Switch>

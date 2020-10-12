@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from 'react-circular-progressbar';
+import { NavLink } from 'react-router-dom';
 
 
  class MissionLeafLabel extends Component {
@@ -68,6 +69,9 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
 
 
 
+      let missionId=this.props.missionId;//.replace(".","$");
+
+      
 
         return (
             <div>
@@ -77,6 +81,9 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                   Leaf
                 <button onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props)} >PRESS</button>
                
+               <button onClick={()=>alert(missionId)} >o</button>
+                <NavLink to={"/projectDashboard/"+this.props.projectId+"/mission/"+missionId}>-></NavLink>
+
                  </CircularProgressbarWithChildren>
 
             </div>

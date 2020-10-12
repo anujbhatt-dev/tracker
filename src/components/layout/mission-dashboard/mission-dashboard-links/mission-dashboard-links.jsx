@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { withRouter } from "react-router-dom"
 import Modal from "../../../../UI/modal"
+import axios from "axios"
 
 
   class MissionDashboardLinks extends Component{
@@ -35,10 +36,10 @@ import Modal from "../../../../UI/modal"
     }
 
     componentDidMount=()=>{
-    //   axios.get("/v1/mission/"+this.props.missionId+"/link")
-    //   .then(res=>{
-    //  this.setState({links:res.data});
-    //   })
+      axios.get("/v1/mission/"+this.props.missionId+"/link")
+      .then(res=>{
+     this.setState({links:res.data});
+      })
 
      }
 

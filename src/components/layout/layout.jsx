@@ -32,10 +32,10 @@ import AddMission from "./static/add-mission"
 
                     </Switch>
 
-                    <h1>Detail view</h1>
+                    {/* <h1>Detail view</h1>
                     <DetailView/>
                     <h1>Add mission</h1>
-                    <AddMission/>
+                    <AddMission/> */}
                </div>
       )
     }
