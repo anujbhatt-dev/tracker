@@ -135,7 +135,7 @@ import axios from "axios";
         console.log(res.data))
 
       else
-      axios.post("/v1/mission/level/1",{...this.state},{params:{id:this.props.missionId}})
+      axios.post("/v1/mission/level/1/"+this.props.projectId,{...this.state})
       .then(res=>
         console.log(res.data))
 
