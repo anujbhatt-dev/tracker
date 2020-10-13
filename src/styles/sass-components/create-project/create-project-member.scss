@@ -53,6 +53,12 @@
           object-fit: cover;
           object-position: center;
           border-radius: 100px;
+          &--circle{
+            height: 3.32rem;
+            width: 3.32rem;
+            position: relative;
+            top: -0.35rem;
+          }
         }
       }
       &-name{

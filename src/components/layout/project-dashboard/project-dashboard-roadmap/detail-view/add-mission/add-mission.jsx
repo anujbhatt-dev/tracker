@@ -127,7 +127,7 @@ import axios from "axios";
     }
 
     createMission=()=>{
-         
+
 
       if(this.props.type==="MISSION")
       axios.post("/v1/mission/level/n",{...this.state},{params:{id:this.props.missionId}})
@@ -139,7 +139,7 @@ import axios from "axios";
       .then(res=>
         console.log(res.data))
 
-    
+
     }
 
 
@@ -150,7 +150,7 @@ import axios from "axios";
             <div className="AddMission__head">
              Add New Mission
             </div>
-            <hr className="hr"/>
+            <hr className="hr" />
             {/*   <div className="AddMission__wrapper">
                <div className="AddMission__col1">
                    <div className="AddMission__subHead">description</div>
@@ -163,7 +163,7 @@ import axios from "axios";
                   <input className="AddMission__col1_input" type="text"/>
                   <div className="AddMission__subHead">Name</div>
                    <input className="AddMission__col1_input" type="text"/> */}
-                 
+
 
          <AddMain     notesChangeHandler={this.notesChangeHandler}
                             addNoteHandler={this.addNoteHandler}

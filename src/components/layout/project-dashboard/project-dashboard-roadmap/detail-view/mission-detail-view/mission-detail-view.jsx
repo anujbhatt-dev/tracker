@@ -8,7 +8,7 @@ class MissionDetailView extends Component {
     render(){
 
         let   progressStyle={
-                 
+
             rotation: 0.25,
                  strokeLinecap: 'butt',
                  textSize: '16px',
@@ -36,7 +36,7 @@ class MissionDetailView extends Component {
       if(this.props.missionInsight==null){
 
       }else{
-            
+
         progressValue=70;
       }
 
@@ -46,11 +46,11 @@ class MissionDetailView extends Component {
       progressStyle.pathColor='yellow'
 
 
-  
+
         return (
               <div className="detailView">
                 <div className="detailViewRow">
-  
+
                  <div className="detailView__col1">
                     <div className="detailView__col1_row1">
                        <div className="detailView__col1_row1-id">{this.props.missionId}</div>
@@ -67,7 +67,7 @@ class MissionDetailView extends Component {
                            <div className="detailView__col1_row1-tech_count">{this.props.category}</div>
                        </div>
                     </div>
-                    <br/><hr/><br/><br/>
+                    <br/><hr className="hr"/><br/><br/>
 
                     <div className="detailView__col1_row2">
                         <div>Added By: <strong>{this.props.addedBy}</strong></div>
@@ -78,9 +78,9 @@ class MissionDetailView extends Component {
                         <div>Ending Date: <strong>{this.props.endingDate}</strong></div>
                     </div>
                  </div>
-                
+
                 </div>
-                <br/><hr/><br/><br/>
+                <br/><hr  className="hr"/><br/><br/>
 
                 <div  className="detailViewRow">
                    <div className="detailView__description">
@@ -109,7 +109,7 @@ class MissionDetailView extends Component {
                     <i className="fa fa-plane detailView__arrow"></i>
                  </NavLink>
               :null}
-                
+
                 <AddMission  projectId={this.props.projectId} missionId={this.props.missionId} type={"MISSION"}/>
               </div>
           )

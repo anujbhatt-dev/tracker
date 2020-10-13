@@ -1,0 +1,62 @@
+.projectBar{
+  padding: 3rem 40rem ;
+  display: flex;
+  justify-content: space-between;
+  & > *{
+    border: 1px solid rgba($color-black,.2);
+  }
+  &__img{
+     // width: 20rem;
+     padding: 2rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-right: 2rem;
+     & img{
+       border-radius: 50%;
+       height: 8rem;
+       width: 8rem;
+       background: $color-ppm-secondary;
+       opacity: .5;
+     }
+  }
+  &__details{
+    flex-grow: 1;
+    display: flex;
+    padding: .5rem;
+    &_col1{
+      flex-grow: 1;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      &-div{
+        font-size: 1rem;
+        margin-bottom: .2rem;
+        &_first{
+          padding-right: 1.5rem;
+        }
+        &_second{
+          font-weight: bold;
+        }
+      }
+    }
+    &_col2{
+      flex-grow: 1;
+      &-element{
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+
+      }
+      & hr{
+        margin: .2rem 0;
+      }
+      &-div{
+         display: flex;
+         & > *{
+           width: 50%;
+         }
+      }
+    }
+  }
+}
