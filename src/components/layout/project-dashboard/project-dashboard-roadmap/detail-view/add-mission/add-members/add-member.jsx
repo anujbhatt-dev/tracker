@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 class AddMember extends Component {
- 
+
   state={
     search:"",
     data:[],
@@ -91,11 +91,11 @@ class AddMember extends Component {
   }
 
 
- 
+
 
   render(){
     return (
-      <>
+      <div className="projectDashboardMember">
          {/* members */}
         <div className="createProjectMember">
              <input onChange={e=>{ this.setState({search:e.target.value});if(e.target.value.length>4)this.setState({loading:true,data:[],page:0}) }} value={this.state.search}   placeholder="search" className="createProjectMember__box" type="text"/>
@@ -133,7 +133,7 @@ class AddMember extends Component {
                 return <div className="createProjectMember__result_item">
                            <figure className="createProjectMember__result_item-fig">
                               <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
-                             
+
                               <figcaption className="createProjectMember__result_item-fig_cap">{member.user.email}</figcaption>
                            </figure>
                            <div className="createProjectMember__result_item createProjectMember__result_item-col2">
@@ -177,7 +177,7 @@ class AddMember extends Component {
             </div>
         </div>
     </div>
-    </>
+    </div>
     )
   }
 }

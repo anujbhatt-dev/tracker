@@ -7,7 +7,9 @@ class AddMain extends Component{
     render(){
 
         return (
-            <div className="createProjectMain">
+          <div >
+
+            <div id="AddMission__flexWrap" className="createProjectMain">
                 <div className="createProjectMain__col1">
                    <input className="createProjectMain__col1_input createProjectMain__col1_input--text" value={this.props.name} onChange={e=>this.props.updateHandler(e)} placeholder=" name" name="name" type="text"/><br/>
                    <input className="createProjectMain__col1_input createProjectMain__col1_input--text" value={this.props.category} onChange={e=>this.props.updateHandler(e)} placeholder="category" name="category" type="text"/><br/>
@@ -23,7 +25,7 @@ class AddMain extends Component{
                      <input className="createProjectMain__col1_input createProjectMain__col1_input--date" value={this.props.endingDate} onChange={e=>this.props.updateHandler(e)} id="endDate" placeholder="end date" name="endingDate" type="date"/>
                    </div>
                 </div>
-  
+
                 <div className="createProjectMain__col2">
                      <div  className="createProjectMain__col2_head">Add Notes</div>
                      <br/>
@@ -47,8 +49,8 @@ class AddMain extends Component{
                          </div>
                      </div>
                  </div>
-  
-  
+
+
                  <div className="createProjectMain__col2">
                       <div  className="createProjectMain__col2_head">Add Links</div>
                       <br/>
@@ -73,10 +75,11 @@ class AddMain extends Component{
                       </div>
                   </div>
             </div>
+            </div>
         )
       }
     }
-  
+
 
 
  export default AddMain;

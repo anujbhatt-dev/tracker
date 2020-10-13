@@ -5,6 +5,7 @@ import ProjectDashboardNotes from "./project-dashboard-notes/project-dashboard-n
 import ProjectDashboardLinks from "./project-dashboard-links/project-dashboard-links"
 import ProjectDashboardRoadmap from "./project-dashboard-roadmap/project-dashboard-roadmap"
 import ProjectDashboardMembers from "./project-dashboard-members/project-dashboard-members"
+import ProjectBar from "./project-bar/project-bar"
 import axios from "axios"
 import ProjectMember from "./project-member"
 import UserBar from "../user-bar/user-bar"
@@ -43,8 +44,38 @@ class ProjectDashboard extends Component{
     render(){
 
       const projectId= this.props.match.params.id;
-      return (
+      return (<>
+           <ProjectBar/>
            <div style={{background:"white"}} className="projectDashboard">
+
+                {
+                  //userSidebar
+                }
+                 <div className="projectDashboard__userSidebar">
+                    <div className="projectDashboard__userSidebar-wrp">
+                      <hr className="hr"/>
+                      <figure>
+                        <img
+                        className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
+                       //   src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
+                         src="https://i.ibb.co/nbGYCsw/me.jpg"
+                         alt=""/>
+                         <figcaption>
+                            ANUJ bHATT
+                         </figcaption>
+                       </figure>
+                    </div>
+
+                       <div className="projectDashboard__userSidebar_obj">
+                           <div className="projectDashboard__userSidebar_obj-text">objectives to complete</div>
+                           <div className="projectDashboard__userSidebar_obj-count">1234</div>
+                       </div>
+
+
+                       <div className="projectDashboard__userSidebar_noti"><i className="fa fa-bell" aria-hidden="true"></i><span className="projectDashboard__userSidebar_noti-count">12</span></div>
+
+                 </div>
+
                  <div style={{background:"grey"}} className="projectDashboard__col1">
 
                  <UserBar/>
@@ -88,12 +119,12 @@ class ProjectDashboard extends Component{
                         .map((member,i)=>
 
                         <ProjectMember  member={member} />
-                        
+
                          )}
 
                       </div>}
                  </div>
-           </div>
+           </div></>
       )
     }
   }

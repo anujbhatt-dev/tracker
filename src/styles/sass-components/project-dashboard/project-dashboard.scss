@@ -2,7 +2,7 @@
   min-height: 100vh;
   width: 100vw;
   background: rgba($color-grey-light,1);
-  padding: 9rem 20rem ;
+  padding: 2rem 15rem ;
   padding-bottom: 4rem;
   display: flex;
   justify-content: space-around;
@@ -11,9 +11,17 @@
   &__col1{
     position: relative;
     // overflow-y: auto;
-    width:60%;
+    width:70%;
     border: 1px solid rgba($color-black,.2);
   }
   @import "./project-dashboard-aside";
-
+  @import "./project-dashboard-userSidebar"
 }
+#AddMission__flexWrap
+  {
+    flex-flow: column;
+    & > *{
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+  }

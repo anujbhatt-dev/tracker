@@ -1,0 +1,74 @@
+&__userSidebar{
+  width: 13%;
+  border: 1px solid rgba($color-black,.4);
+  // min-height: 30rem;
+  text-align: center;
+  // font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  padding: 2rem auto;
+  padding-bottom: 4rem;
+  &-wrp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 2rem auto;
+    & hr{
+      position: absolute;
+      top:30%;
+      width: 100%;
+    }
+    & figure{
+      & img{
+        height: 6rem;
+        width: 6rem;
+      }
+      & figcaption{
+        font-size: 1.3rem;
+        text-transform: lowercase;
+      }
+    }
+  }
+  &_obj{
+    &-text{
+       margin-bottom: .5rem;
+       font-size: 1.5rem;
+    }
+    &-count{
+      font-weight: bold;
+       margin-bottom: 2rem;
+       font-size: 1.5rem;
+    }
+  }
+  &_noti{
+    cursor: pointer;
+    margin: 1rem auto;
+    position: relative;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    background: rgba($color-grey,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .fa-bell{
+       font-size: 1.5rem;
+    }
+    &-count{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 2.5rem;
+      width: 2.5rem;
+      font-size: 1.2rem;
+      color: $color-white;
+      font-weight: bold;
+      position: absolute;
+      top: -0.5rem;
+      right: -0.5rem;
+      background: $color-ppm-secondary;
+      border-radius: 50%;
+      // transform: translate(-50%,-50%);
+    }
+  }
+}
