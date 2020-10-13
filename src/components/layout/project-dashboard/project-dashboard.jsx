@@ -51,7 +51,7 @@ class ProjectDashboard extends Component{
                 {
                   //userSidebar
                 }
-                 <div className="projectDashboard__userSidebar">
+                 {/* <div className="projectDashboard__userSidebar">
                     <div className="projectDashboard__userSidebar-wrp">
                       <hr className="hr"/>
                       <figure>
@@ -74,14 +74,14 @@ class ProjectDashboard extends Component{
 
                        <div className="projectDashboard__userSidebar_noti"><i className="fa fa-bell" aria-hidden="true"></i><span className="projectDashboard__userSidebar_noti-count">12</span></div>
 
-                 </div>
+                 </div> */}
 
-                 <div style={{background:"grey"}} className="projectDashboard__col1">
-
-                 <UserBar/>
+<UserBar/>
 
 
-                      <ProjectDashboardNav projectId={projectId}/>
+                 <div style={{background:"rgba(221, 221, 221, 0.5)"}} className="projectDashboard__col1">
+                 <ProjectDashboardNav projectId={projectId}/>
+
                       {this.state.roadMapData?<Switch>
 
                     <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap data={this.state.roadMapData} projectId={projectId}/></Route>
