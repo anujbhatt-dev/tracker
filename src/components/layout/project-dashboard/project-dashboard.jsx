@@ -103,16 +103,16 @@ class ProjectDashboard extends Component{
                       </div>
                       {this.state.aside==="activities"?
                       <div className="projectDashboard__col2_activities">
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--div">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
                       </div>:
                       <div className="projectDashboard__col2_members">
                         {this.state.members

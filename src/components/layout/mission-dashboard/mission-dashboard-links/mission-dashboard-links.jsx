@@ -98,8 +98,7 @@ import axios from "axios"
 
       return (
         <div className="projectDashboardNotes">
-                     <button onClick={()=>this.setState({show:"ADD"})}>ADD</button>
-
+            <button className="projectDashboardNotes__update_addForm-btn projectDashboardNotes__update_addForm-plus" onClick={()=>this.setState({show:"ADD"})}><i className="fa fa-plus" aria-hidden="true"></i> Add</button>
             {this.state.links.map((link,i)=>{
               return <div key={link.title+i} className="projectDashboardNotes__notes">
                          <div className="title">

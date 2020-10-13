@@ -6,8 +6,9 @@ import MissionDashboardLinks from "./mission-dashboard-links/mission-dashboard-l
 import MissionDashboardMembers from "./mission-dashboard-members/mission-dashboard-members"
 import MissionDashboardObjective from "./mission-dashboard-objective/mission-dashboard-objective"
 import axios from "axios"
-import MissionMember from "./project-member"
+import MissionMember from "./mission-member"
 import UserBar from "../user-bar/user-bar"
+import ProjectBar from "../project-dashboard/project-bar/project-bar"
 
 
 class MissionDashboard extends Component{
@@ -15,7 +16,7 @@ class MissionDashboard extends Component{
     state={
       aside:"activities",
       activities:"",
-      members:"",
+      members:[],
     }
 
     asideHandler=(aside)=>{
@@ -42,12 +43,15 @@ class MissionDashboard extends Component{
       console.log(this.props.match.params)
 
       return (
-           <div className="projectDashboard">
-                 <div className="projectDashboard__col1">
-                      <MissionDashboardNav projectId={projectId} missionId={missionId}/>
+        <>
+        
+        <ProjectBar/>
 
-                      <UserBar/>
-                      
+           <div style={{background:"white"}} className="projectDashboard">
+                 <UserBar/>
+
+                 <div className="projectDashboard__col1">
+                      <MissionDashboardNav projectId={projectId} missionId={missionId}/>                      
                       <Switch>
                         
                              <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
@@ -57,55 +61,41 @@ class MissionDashboard extends Component{
 
                        <Route exact path="/projectDashboard/:projectId/mission/:missionId/links"><MissionDashboardLinks missionId={missionId} projectId={projectId}/></Route>
 
-                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/members">Member</Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/members"><MissionDashboardMembers missionId={missionId} projectId={projectId}/></Route>
                         </Switch>
 
 
                  </div>
                  <div className="projectDashboard__col2">
                       <div className="projectDashboard__col2_toggler">
-                          <div style={this.state.aside==="activities"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("activities")}>Activities</div>
-                          <div style={this.state.aside==="members"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("members")}>Members</div>
+                          <div style={this.state.aside==="activities"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("activities")}><i      style={{color:"orange",height:"15px",width:"35px"}} class="fa fa-bell fa-1x"></i></div>
+                          <div style={this.state.aside==="members"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("members")}> <i style={{color:"pink",height:"15px",width:"35px"}} class="fa fa-users fa-1x"></i> </div>
                       </div>
                       {this.state.aside==="activities"?
                       <div className="projectDashboard__col2_activities">
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--divodd">sagar chutiye!!</div>
-                            <div  className="projectDashboard__col2_activities--diveven">sagar chutiye!!</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
                       </div>:
-                        <div className="projectDashboard__col2_members">
+                      <div className="projectDashboard__col2_members">
                         {this.state.members
                         .map((member,i)=>
 
                         <MissionMember  member={member} />
-                        
+
                          )}
 
-                      </div>
-                      }
+                      </div>}
                  </div>
            </div>
+           </>
       )
     }
   }
