@@ -71,39 +71,47 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
             if(node.level==1)
               {
                 node.position={x:x,y:y};
-                node.data={label:<MissionLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node} />}
-                node.type='input';
+              
+                if(node.children && node.children.length!=0){
+             
+                  node.data={label:<MissionLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node} />}
+                   node.type='input';
+                
+                }else{
+                  node.data={label:<MissionLeafLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node} />}
+                       node.type='output';
+                 
+                }
+
                 element.push({
                   ...node
                 });
                 element.push( { id: projectNode.id+"-"+node.id, source:projectNode.id, target:node.id, animated: true })
+
+               
               }
             else{
 
               if(node.children && node.children.length!=0)
 
            {   node.position={x:x,y:y};
-           node.type='input';
+               node.type='input';
 
               node.data={label:<MissionLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node}/>}
 
-              element.push({
-                ...node
-              })
-              element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id, animated: true})
-            }else{
+              }else{
               node.position={x:x,y:y};
               node.type='output';
 
               node.data={label:<MissionLeafLabel projectId={this.props.projectId}  modalHandler={this.modalHandler} {...node}/>}
 
-              element.push({
-                ...node
-              })
-              element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id, animated: true})
-          
-
-            }
+             }
+            element.push({
+              ...node
+            })
+            element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id, animated: true})
+         
+            
               }
 
               hashMap[node.missionId]=node.id;
