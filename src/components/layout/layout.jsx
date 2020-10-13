@@ -21,6 +21,7 @@ import Modal from "../../UI/modal"
       return (
                <div className="layout">
                       <Nav authenticated={this.props.authenticated}/>
+
                      <Switch>
 
                      <Route exact path="/"><Join authenticated={this.props.authenticated}/></Route>

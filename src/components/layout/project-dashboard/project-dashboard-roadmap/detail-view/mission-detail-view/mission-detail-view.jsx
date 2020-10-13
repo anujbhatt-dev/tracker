@@ -110,7 +110,7 @@ class MissionDetailView extends Component {
                  </NavLink>
               :null}
                 
-                <AddMission  projectId={this.props.projectId} missionId={this.props.missionId} type={"mission"}/>
+                <AddMission  projectId={this.props.projectId} missionId={this.props.missionId} type={"MISSION"}/>
               </div>
           )
       }

@@ -7,6 +7,7 @@ import ProjectDashboardRoadmap from "./project-dashboard-roadmap/project-dashboa
 import ProjectDashboardMembers from "./project-dashboard-members/project-dashboard-members"
 import axios from "axios"
 import ProjectMember from "./project-member"
+import UserBar from "../user-bar/user-bar"
 
 
 class ProjectDashboard extends Component{
@@ -45,8 +46,11 @@ class ProjectDashboard extends Component{
       return (
            <div style={{background:"white"}} className="projectDashboard">
                  <div style={{background:"grey"}} className="projectDashboard__col1">
-                      <ProjectDashboardNav projectId={projectId}/>
 
+                 <UserBar/>
+
+
+                      <ProjectDashboardNav projectId={projectId}/>
                       {this.state.roadMapData?<Switch>
 
                     <Route exact path="/projectDashboard/:id"><ProjectDashboardRoadmap data={this.state.roadMapData} projectId={projectId}/></Route>

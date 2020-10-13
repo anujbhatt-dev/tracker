@@ -7,6 +7,8 @@ import MissionDashboardMembers from "./mission-dashboard-members/mission-dashboa
 import MissionDashboardObjective from "./mission-dashboard-objective/mission-dashboard-objective"
 import axios from "axios"
 import MissionMember from "./project-member"
+import UserBar from "../user-bar/user-bar"
+
 
 class MissionDashboard extends Component{
 
@@ -43,6 +45,8 @@ class MissionDashboard extends Component{
            <div className="projectDashboard">
                  <div className="projectDashboard__col1">
                       <MissionDashboardNav projectId={projectId} missionId={missionId}/>
+
+                      <UserBar/>
                       
                       <Switch>
                         
