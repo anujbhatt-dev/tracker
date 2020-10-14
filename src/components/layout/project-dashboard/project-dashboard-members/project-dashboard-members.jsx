@@ -1,9 +1,8 @@
 import React, {Component} from "react"
 import axios from "axios"
 import Modal from "../../../../UI/modal"
-import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-dashboard-members-add"
 import ProjectMember from "./project-member"
-
+import ProjectDashboardMembersAdd from "./project-dashboard-members-add/project-dashboard-members-add"
 
   class ProjectDashboardMembers extends Component{
 

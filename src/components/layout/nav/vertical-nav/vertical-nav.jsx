@@ -10,10 +10,10 @@ import { NavLink } from "react-router-dom";
 
       return (
         <div  className={"verticalNav "+(this.props.show?"show":"dontShow")}>
-           <NavLink to="/createProject">  <div className="verticalNav__item"><i className="fa fa-shapes" aria-hidden="true"></i></div></NavLink>
-           <NavLink to="/projects">  <div className="verticalNav__item"><i className="fa fa-project-diagram" aria-hidden="true"></i></div></NavLink>
-           <NavLink to="/">  <div className="verticalNav__item"><i className="fa fa-user" aria-hidden="true"></i></div></NavLink>
-           <NavLink to="/">  <div className="verticalNav__item"><i className="fa fa-chart-bar" aria-hidden="true"></i></div></NavLink>
+           <NavLink to="/createProject">  <div  aria-hidden="true" style={{background:"white",color:"red"}} className="verticalNav__item"><i className="fa fa-plus-circle" aria-hidden="true"></i></div></NavLink>
+           <NavLink to="/projects">  <div  aria-hidden="true" style={{background:"white",color:"green"}} className="verticalNav__item"><i className="fa fa-object-group" aria-hidden="true"></i></div></NavLink>
+           <NavLink to="/">  <div  aria-hidden="true" style={{background:"white",color:"blue"}}  className="verticalNav__item"><i className="fa fa-user" aria-hidden="true"></i></div></NavLink>
+           <NavLink to="/">  <div  aria-hidden="true" style={{background:"white",color:"black"}} className="verticalNav__item"><i className="fa fa-area-chart" aria-hidden="true"></i></div></NavLink>
         </div>
       )
     }

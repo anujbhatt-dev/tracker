@@ -19,7 +19,7 @@ import VerticalNav from "./vertical-nav/vertical-nav"
 
       return (
              <div className="nav">
-                   <div onClick={this.showHandler} className="nav__item">{!this.state.show?<i class="fa fa-bars" aria-hidden="true"></i>:<i class="fa fa-times" aria-hidden="true"></i>}</div>
+                   <div style={{color:"black",background:"white"}} onClick={this.showHandler} className="nav__item">{!this.state.show?<i class="fa fa-bars" aria-hidden="true"></i>:<i class="fa fa-times" aria-hidden="true"></i>}</div>
                    <VerticalNav show={this.state.show}/>
                    <HorizontalNav show={this.state.show}/>
              </div>

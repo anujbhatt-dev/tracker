@@ -45,7 +45,7 @@ class ProjectDashboard extends Component{
 
       const projectId= this.props.match.params.id;
       return (<>
-           <ProjectBar/>
+           <ProjectBar projectId={projectId} />
            <div style={{background:"white"}} className="projectDashboard">
 
                 {

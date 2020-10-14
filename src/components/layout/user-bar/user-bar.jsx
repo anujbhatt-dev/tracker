@@ -44,12 +44,12 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                                        value={progressValue}>
                 <img
                 className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
-               //   src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
-                 src="https://i.ibb.co/nbGYCsw/me.jpg"
+                 src={this.context.imageUrl}
+                 //src="https://i.ibb.co/nbGYCsw/me.jpg"
                  alt=""/>
                  </CircularProgressbarWithChildren>
                  <figcaption>
-                    ANUJ bHATT
+                    {this.context.name}
                  </figcaption>
                </figure>
             </div>
@@ -60,7 +60,7 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                </div>
 
 
-               <div className="projectDashboard__userSidebar_noti"><i className="fa fa-bell" aria-hidden="true"></i><span className="projectDashboard__userSidebar_noti-count">12</span></div>
+               <div style={{background:"white"}} className="projectDashboard__userSidebar_noti"><i className="fa fa-bell" aria-hidden="true"></i><span className="projectDashboard__userSidebar_noti-count">12</span></div>
 
          </div>
 

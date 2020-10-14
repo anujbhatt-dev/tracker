@@ -56,8 +56,8 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
                      value={progressValue} >
                   <img
                   className="createProjectMember__result_item-fig_img  createProjectMember__result_item-fig_img--circle"
-                 //   src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
-                   src="https://i.ibb.co/nbGYCsw/me.jpg"
+                    src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
+                 //  src="https://i.ibb.co/nbGYCsw/me.jpg"
                    alt=""/>
                              </CircularProgressbarWithChildren>
                     </div>

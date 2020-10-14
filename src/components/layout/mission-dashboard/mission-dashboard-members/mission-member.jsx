@@ -47,24 +47,24 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
         {
             return (
 
-            <div key={this.props.member.user.email} className="projectDashboardNotes__notes" >
+            <div key={this.props.member.member.user.email} className="projectDashboardNotes__notes" >
                        <div  className="projectDashboardMember__member">
                            <div className="createProjectMember__result_item-fig_img">
                        <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
                             value={progressValue} >
                          <img
                          className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
-                        //   src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
-                          src="https://i.ibb.co/nbGYCsw/me.jpg"
+                         src={this.props.member.member.user.thumbnailUrl?this.props.member.member.user.thumbnailUrl:this.props.member.member.user.imageUrl}
+                        //  src="https://i.ibb.co/nbGYCsw/me.jpg"
                           alt=""/>
                                     </CircularProgressbarWithChildren>
                            </div>
                          <div className="projectDashboardMember__member_textWrapper">
-                             <div className="projectDashboardMember__member_text">{this.props.member.user.email}</div>
-                             <div className="projectDashboardMember__member_text">{this.props.member.user.firstName} {this.props.member.user.lastName}</div>
-                             <div className="projectDashboardMember__member_text">{this.props.member.user.authority}</div>
+                             <div className="projectDashboardMember__member_text">{this.props.member.member.user.email}</div>
+                             <div className="projectDashboardMember__member_text">{this.props.member.member.user.firstName} {this.props.member.member.user.lastName}</div>
+                             <div className="projectDashboardMember__member_text">{this.props.member.member.user.authority}</div>
                          </div>
-                         <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {this.props.member.user.addedOn}</div>
+                         <div className="projectDashboardMember__member_date"><strong>Added on:</strong> {this.props.member.member.user.addedOn}</div>
                          <div onClick={()=>this.props.modalHandler(this.props.member,this.props.i)} className="title__arrow"><i className="fa fa-ellipsis-h" aria-hidden="true"></i></div>
                        </div>
               </div>

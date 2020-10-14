@@ -26,7 +26,7 @@ class MissionDashboard extends Component{
     }
 
     componentDidMount=()=>{
-      axios.get("/v2/mission/"+this.props.match.params.missionId+"/member")
+      axios.get("/v1/mission/"+this.props.match.params.missionId+"/member")
       .then(res=>{
         this.setState({members:res.data})
       })

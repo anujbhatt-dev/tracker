@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import MissionMember from "./mission-member";
 import MissionDashboardMembersAdd from "./mission-dashboard-members-add/mission-dashboard-members-add";
 import Modal from "../../../../UI/modal";
+import axios from "axios";
 
 
   class MissionDashboardMembers extends Component{
@@ -10,6 +11,98 @@ import Modal from "../../../../UI/modal";
     state={
       members:[]
     }
+
+
+
+    modalHandler=(note,i)=>{
+      this.setState({
+        show:"UPDATE",
+        selectedNote:{... note},
+        selectedIndex:i,
+      })
+    }
+
+    modalCloseHandler=()=>{
+      this.setState({
+        show:false
+      })
+    }
+
+    componentDidMount=()=>{
+      axios.get("/v1/mission/"+this.props.missionId+"/member")
+      .then(res=>{
+      this.setState({members:res.data});
+      })
+ 
+     }
+ 
+     selectedOnChangeHandler=(e)=>{
+ 
+       let newNote= {... this.state.selectedNote};
+ 
+       newNote[e.target.name]=e.target.value;
+ 
+       this.setState({selectedNote:{... newNote}});
+     }
+ 
+ 
+     newOnChangeHandler=(e)=>{
+ 
+       let newNote= {... this.state.newNote};
+ 
+       newNote[e.target.name]=e.target.value;
+ 
+       this.setState({newNote:{... newNote}});
+     }
+ 
+ 
+     newNoteSubmitHandler=(e)=>{
+       console.log(this.state);
+       e.preventDefault();
+     }
+ 
+     updateNoteSubmitHandler=(e)=>{
+       e.preventDefault();
+ 
+       let newNotes=[...this.state.notes];
+       newNotes[this.state.selectedIndex]=this.state.selectedNote;
+ 
+       console.log(this.state.selectedIndex)
+       this.setState({notes:newNotes,show:false});
+     }
+ 
+ 
+     toggleHandler=(i)=>{
+        const newNotes =this.state.notes
+        newNotes[i].toggle = !newNotes[i].toggle
+        this.setState({
+            notes:[...newNotes]
+        })
+     }
+ 
+ 
+ 
+     updateMembers=(addedMembers)=>{
+      // let newMembers=[...this.state.members];
+ 
+       let newMembers=[];
+ 
+       // for each (var item in obj) {
+       //   sum += item;
+       // }
+ 
+ 
+       addedMembers.forEach(member=>{
+         console.log(member);
+ 
+         newMembers.push({user:{...member}});
+       });
+ 
+ 
+       newMembers.concat(this.state.members);
+ console.log(newMembers)
+       this.setState({members:newMembers});
+     }
 
     render(){
 

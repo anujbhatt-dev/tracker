@@ -1,10 +1,29 @@
 import React, {Component} from "react"
 import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from 'react-circular-progressbar';
+import axios from "axios";
 
 
   class ProjectBar extends Component{
 
+
+    state={
+
+    }
+
+
+
+    componentDidMount=()=>{
+
+      axios.get("/v1/project/"+this.props.projectId+"/detail")
+      .then(res=>this.setState({...res.data}))
+
+    }
+
+
     render(){
+
+
+
 
         
         let   progressStyle={
@@ -32,6 +51,8 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
   
         let progressValue=2;
   
+        if(!this.state.projectInsight)
+        return null;
 
       return (
             <div className="projectBar">
@@ -46,33 +67,33 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                
                <div className="projectBar__details">
                    <div className="projectBar__details_col1">
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Project Id</span><span className="projectBar__details_col1-div_second">dfgsddfdsfdsff</span></div>
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">project Name</span><span className="projectBar__details_col1-div_second">test2</span></div>
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Creator</span><span className="projectBar__details_col1-div_second">Anuj Bahtt</span></div>
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Added On</span><span className="projectBar__details_col1-div_second">02/12/2020</span></div>
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Starting Date</span><span className="projectBar__details_col1-div_second">02/12/2020</span></div>
-                       <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Ending Date</span><span className="projectBar__details_col1-div_second">02/12/2020</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">{this.state.projectId}</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">{this.state.projectName}</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Creator</span><span className="projectBar__details_col1-div_second">{this.state.createBy}</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Added On</span><span className="projectBar__details_col1-div_second">{this.state.addOn}</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Starting Date</span><span className="projectBar__details_col1-div_second">{this.state.startingDate}</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Ending Date</span><span className="projectBar__details_col1-div_second">{this.state.endingDate}</span></div>
                    </div>
                    <div className="projectBar__details_col2">
                         <div className="projectBar__details_col2-element">Elements</div>
                         
                         <br/>
                         <div className="projectBar__details_col2-div">
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Missions</span><span className="projectBar__details_col1-div_second">5</span></div>
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Notes</span><span className="projectBar__details_col1-div_second">10</span></div>
+      <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Missions</span><span className="projectBar__details_col1-div_second">{this.state.missionCount}</span></div>
+                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Notes</span><span className="projectBar__details_col1-div_second">{this.state.projectInsight.noteCount}</span></div>
                         </div>
                         <div className="projectBar__details_col2-div">
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Links</span><span className="projectBar__details_col1-div_second">12</span></div>
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">conversations</span><span className="projectBar__details_col1-div_second">12</span></div>
+                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Links</span><span className="projectBar__details_col1-div_second">{this.state.projectInsight.linkCount}</span></div>
+                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">conversations</span><span className="projectBar__details_col1-div_second">{4}</span></div>
                         </div>
                         <br/>
                         <hr className="hr"/>
                         <br/>
                         <div className="projectBar__details_col2-div">
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Menbers</span><span className="projectBar__details_col1-div_second">12</span></div>
-                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Chief</span><span className="projectBar__details_col1-div_second">12</span></div>
+                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Members</span><span className="projectBar__details_col1-div_second">{this.state.memberCount}</span></div>
+                            <div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Chief</span><span className="projectBar__details_col1-div_second">{this.state.chiefCount}</span></div>
                         </div>
-                        <div className="projectBar__details_col2-last"><div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Soilder</span><span className="projectBar__details_col1-div_second">12</span></div></div>
+                        <div className="projectBar__details_col2-last"><div className="projectBar__details_col1-div"><span className="projectBar__details_col1-div_first">Soilder</span><span className="projectBar__details_col1-div_second">{this.state.soilderCount}</span></div></div>
                    </div>
                </div>
             </div>

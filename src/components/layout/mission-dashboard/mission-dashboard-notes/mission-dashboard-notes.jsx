@@ -35,7 +35,7 @@ import axios from "axios"
     }
 
     componentDidMount=()=>{
-     axios.get("/v1/project/"+this.props.projectId+"/note")
+     axios.get("/v1/mission/"+this.props.missionId+"/note")
      .then(res=>{
     this.setState({notes:res.data});
      })

@@ -20,14 +20,10 @@ import axios from "axios";
       },
       updating:false,
       links:[{
-        link:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, iste!",
-        description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod expedita beatae magnam reprehenderit delectus consequatur ipsa quo fuga nihil saepe, error, adipisci accusamus. Neque architecto officiis voluptas iusto deleniti recusandae rem ipsam laboriosam. Dolore, minus praesentium, dolor similique maxime illum consectetur distinctio tenetur facere nihil repellat animi necessitatibus assumenda cumque, in id voluptatem. Voluptas beatae culpa minus reiciendis tempore"
-      }],
+       }],
       notes:[
       {
-        title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, illo.",
-        description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsam, doloremque fugiat suscipit exercitationem dolorum consequatur necessitatibus mollitia iure adipisci, dolores temporibus voluptates modi eos est repudiandae quia omnis corporis. Numquam atque nisi sed culpa voluptates debitis aliquam possimus doloribus ipsa! Saepe consectetur quibusdam tempore reiciendis laboriosam assumenda eligendi delectus atque, nam minus voluptatum sit, sint laborum deserunt",
-      }
+        }
     ],
       linkInput:{
         link:"",

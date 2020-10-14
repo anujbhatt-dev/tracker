@@ -55,11 +55,11 @@ class AddMember extends Component {
 
 
   memberAddHandler=(member)=>{
-    member.user.authority="SOLDIER"
+    member.authority="SOLDIER"
     this.setState(state=>{
       return {
         members:[member].concat(state.members),
-        addedEmails:[member.user.email].concat(state.addedEmails),
+        addedEmails:[member.email].concat(state.addedEmails),
         updating:true,
       }
     });
@@ -83,7 +83,7 @@ class AddMember extends Component {
 
   authorityChangeHandler=(index,authority)=>{
     let members= [...this.state.members];
-    members[index].user.authority=authority;
+    members[index].authority=authority;
     this.setState({
       members:members,
       updating:true,
@@ -110,7 +110,7 @@ class AddMember extends Component {
                         <div className="createProjectMember__result_item-name">{member.user.firstName} {member.user.lastName}</div>
                         <div className="createProjectMember__result_item-since"><strong>SINCE:</strong> {member.user.addedOn}</div>
                    </div>
-                   <button className="createProjectMember__result_item createProjectMember__result_item--btn" disabled={this.state.addedEmails.indexOf(member.user.email)>=0} onClick={()=>this.memberAddHandler(member)} ><i className="fa fa-plus plusIcon" aria-hidden="true"></i></button>
+                   <button className="createProjectMember__result_item createProjectMember__result_item--btn" disabled={this.state.addedEmails.indexOf(member.user.email)>=0} onClick={()=>this.memberAddHandler(member.user)} ><i className="fa fa-plus plusIcon" aria-hidden="true"></i></button>
                 </div>)}
                 <button className="createProjectMember__result_btn" disabled={this.state.page+1>=this.state.totalPages} onClick={()=>this.setState((state)=>{return {page:state.page+1,loading:true}})} >Load More</button>
              </div>
@@ -129,19 +129,19 @@ class AddMember extends Component {
            <hr/>
            <div className="createProjectMember__result-2 createProjectMember__result">
              {this.state.members.map((member,i)=>{
-              if(member.user.authority==="CAPTAIN"){
+              if(member.authority==="CAPTAIN"){
                 return <div className="createProjectMember__result_item">
                            <figure className="createProjectMember__result_item-fig">
-                              <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
+                              <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
 
-                              <figcaption className="createProjectMember__result_item-fig_cap">{member.user.email}</figcaption>
+                              <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                            </figure>
                            <div className="createProjectMember__result_item createProjectMember__result_item-col2">
-                                <div className="createProjectMember__result_item-name">{member.user.firstName} {member.user.lastName}</div>
-                                <div className="createProjectMember__result_item-since"><strong>SINCE:</strong> {member.user.addedOn}</div>
+                                <div className="createProjectMember__result_item-name">{member.firstName} {member.lastName}</div>
+                                <div className="createProjectMember__result_item-since"><strong>SINCE:</strong> {member.addedOn}</div>
                            </div>
                            <div >
-                              <i onClick={()=>this.memberRemoveHandler(member.user.email,i)} className="fa fa-times removeIcon removeIcon_mod-1" aria-hidden="true"></i>
+                              <i onClick={()=>this.memberRemoveHandler(member.email,i)} className="fa fa-times removeIcon removeIcon_mod-1" aria-hidden="true"></i>
                               <select id="selectAdded" className="select" onChange={(e)=>this.authorityChangeHandler(i,e.target.value)}><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                 <option className="select__option" defaultChecked value="CAPTAIN">CAPTAIN</option>
                                 <option className="select__option" value="SOLDIER">SOLDIER</option>
@@ -155,18 +155,18 @@ class AddMember extends Component {
            <hr className="hr"/>
            <div className="createProjectMember__result-2 createProjectMember__result">
            {this.state.members.map((member,i)=>{
-             if(member.user.authority==="SOLDIER"){
+             if(member.authority==="SOLDIER"){
                return <div className="createProjectMember__result_item">
                           <figure className="createProjectMember__result_item-fig">
-                          <img className="createProjectMember__result_item-fig_img" src={member.user.thumbnailUrl?member.user.thumbnailUrl:member.user.imageUrl} alt=""/>
-                             <figcaption className="createProjectMember__result_item-fig_cap">{member.user.email}</figcaption>
+                          <img className="createProjectMember__result_item-fig_img" src={member.thumbnailUrl?member.thumbnailUrl:member.imageUrl} alt=""/>
+                             <figcaption className="createProjectMember__result_item-fig_cap">{member.email}</figcaption>
                           </figure>
                           <div className="createProjectMember__result_item createProjectMember__result_item-col2">
-                               <div className="createProjectMember__result_item-name">{member.user.firstName} {member.user.lastName}</div>
-                               <div className="createProjectMember__result_item-since"><strong>SINCE:</strong> {member.user.addedOn}</div>
+                               <div className="createProjectMember__result_item-name">{member.firstName} {member.lastName}</div>
+                               <div className="createProjectMember__result_item-since"><strong>SINCE:</strong> {member.addedOn}</div>
                           </div>
                           <div >
-                             <i onClick={()=>this.memberRemoveHandler(member.user.email,i)} className="fa fa-times removeIcon removeIcon_mod-1" aria-hidden="true"></i>
+                             <i onClick={()=>this.memberRemoveHandler(member.email,i)} className="fa fa-times removeIcon removeIcon_mod-1" aria-hidden="true"></i>
                              <select className="select" onChange={(e)=>this.authorityChangeHandler(i,e.target.value)} >
                                <option className="select__option" defaultChecked value="SOLDIER">SOLDIER</option>
                                <option className="select__option" value="CAPTAIN">CAPTAIN</option>
