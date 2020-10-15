@@ -97,7 +97,7 @@ import axios from "axios";
                      </div>
                      <button className="createProjectMember__result_item createProjectMember__result_item--btn" disabled={this.state.addedEmails.indexOf(member.email)>=0} onClick={()=>this.memberAddHandler(member)} ><i className="fa fa-plus plusIcon" aria-hidden="true"></i></button>
                   </div>)}
-                  <button className="createProjectMember__result_btn" disabled={this.state.page+1>=this.state.totalPages} onClick={()=>this.setState((state)=>{return {page:state.page+1,loading:true}})} >Load More</button>
+                  <button className="createProjectMember__result_btn" disabled={this.state.page+1>=this.state.totalPages} onClick={(e)=>{e.preventDefault();this.setState((state)=>{return {page:state.page+1,loading:true}})}} >Load More</button>
                </div>
           </div>
 

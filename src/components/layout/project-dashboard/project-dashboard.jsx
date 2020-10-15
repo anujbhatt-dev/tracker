@@ -48,33 +48,7 @@ class ProjectDashboard extends Component{
            <ProjectBar projectId={projectId} />
            <div style={{background:"white"}} className="projectDashboard">
 
-                {
-                  //userSidebar
-                }
-                 {/* <div className="projectDashboard__userSidebar">
-                    <div className="projectDashboard__userSidebar-wrp">
-                      <hr className="hr"/>
-                      <figure>
-                        <img
-                        className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
-                       //   src={this.props.member.user.thumbnailUrl?this.props.member.user.thumbnailUrl:this.props.member.user.imageUrl}
-                         src="https://i.ibb.co/nbGYCsw/me.jpg"
-                         alt=""/>
-                         <figcaption>
-                            ANUJ bHATT
-                         </figcaption>
-                       </figure>
-                    </div>
-
-                       <div className="projectDashboard__userSidebar_obj">
-                           <div className="projectDashboard__userSidebar_obj-text">objectives to complete</div>
-                           <div className="projectDashboard__userSidebar_obj-count">1234</div>
-                       </div>
-
-
-                       <div className="projectDashboard__userSidebar_noti"><i className="fa fa-bell" aria-hidden="true"></i><span className="projectDashboard__userSidebar_noti-count">12</span></div>
-
-                 </div> */}
+          
 
 <UserBar/>
 

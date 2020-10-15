@@ -82,6 +82,8 @@ import { NavLink } from 'react-router-dom';
               
                 {/* <NavLink to={"/projectDashboard/"+this.props.projectId+"/mission/"+missionId}>-></NavLink> */}
 
+                {this.props.name}
+
                  </CircularProgressbarWithChildren>
 
             </div>

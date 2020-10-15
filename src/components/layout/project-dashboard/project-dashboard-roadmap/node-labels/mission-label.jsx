@@ -58,6 +58,8 @@ class MissionLabel extends Component {
 
 <i onClick={()=>this.props.modalHandler("MISSION",this.props)} class="fa fa-chevron-right fa-3x"></i>
                 
+                {this.props.name}
+
                  </CircularProgressbarWithChildren>
             </div>
         )
