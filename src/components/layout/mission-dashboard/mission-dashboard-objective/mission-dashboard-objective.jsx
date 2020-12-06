@@ -1,13 +1,35 @@
 import React, {Component} from "react"
+import Modal from "../../../../UI/modal"
+import AddObjective from "./add-objective/add-objective"
+import axios from "axios"
+import MissionObjective from "./mission-objective/mission-objective"
 
 
   class MissionDashboardObjective extends Component{
 
     state={
-      r1b1:["anuj","sagar","simran","dimpey","rohan","nikhil","rohit","proteek",],
-      r1b2:["Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipisicing", "elit", "Vel", "molestias" ,"blanditiis", "deserunt" ,"illum" ,"vero", "dolores" ,"dolore" ,"eos", "harum", "ex", "Dolorum"],
-      r1b3:["This", "tool", "can", "be", "useful"],
-      r1b4:["words", "To", "make", "the", "challenge", "even", "more", "difficult", "the", "writer", "could", "try", "to"]
+      r1b1:["TODO","COMPLETED","IN-PROGRESS", "NEXT"],
+      r1b2:["TECHNICAL","STRATIGICAL","BUSSINESS","OPTIMIZATION","BRAINSTORMING","BUG-FIXING"],
+      r1b3:["LOW","MEDIUM","HIGH","CRITICAL"],
+      r1b4:["PRIORITY","LATEST","OLDEST","DEADLINE"],
+      objectives:[],
+      modalShow:false,
+    }
+
+
+    componentDidMount=()=>{
+        axios.get("/v1/mission/"+this.props.missionId+"/objective")
+        .then(res=>this.setState({objectives:res.data}));
+    }
+
+
+    modalCloseHandler=()=>{
+        this.setState({modalShow:false});
+    }
+
+
+    modalOpenHandler=()=>{
+        this.setState({modalShow:true});
     }
 
     render(){
@@ -16,6 +38,10 @@ import React, {Component} from "react"
       const r1b3 = Math.ceil(this.state.r1b2.length/4)
 
       return (
+          <>
+          {this.state.modalShow?<Modal modalHandler={this.modalCloseHandler}>
+            <AddObjective missionId={this.props.missionId}/>
+          </Modal>:null}
          <div className="missionDashboardObjective">
              <div className="missionDashboardObjective__r1">
                 <div  className="missionDashboardObjective__r1_b1">
@@ -58,19 +84,22 @@ import React, {Component} from "react"
 
 
              <div className="missionDashboardObjective__search">
-                 <button className="projectDashboardNotes__update_addForm-btn">button 1</button>
+                 <button className="projectDashboardNotes__update_addForm-btn">SEARCH</button>
              </div>
              <div className="missionDashboardObjective__search">
-                 <button className="projectDashboardNotes__update_addForm-btn">button 1</button>
+                 <button onClick={()=>this.setState({modalShow:true})} className="projectDashboardNotes__update_addForm-btn">ADD</button>
              </div>
 
              <div className="missionDashboardObjective__r2">
 
-                <div className="missionDashboardObjective__r2_b1"></div>
+
+                {this.state.objectives.map(objective=><div className="missionDashboardObjective__r2_b1"><MissionObjective missionId={this.props.missionId} {...objective}/></div>)
+                }
                 <div className="missionDashboardObjective__r2_b2"></div>
                 <div className="missionDashboardObjective__r2_b3"></div>
              </div>
          </div>
+         </>
       )
     }
   }

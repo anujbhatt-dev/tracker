@@ -55,8 +55,6 @@ class MissionDetailView extends Component {
                     <div className="detailView__col1_row1">
                        <div className="detailView__col1_row1-id">{this.props.missionId}</div>
                       
-                       <div className="detailView__col1_row1-id"> {this.props.name}</div>
-
                        <div className="detailView__col1_row1-todo">
                            <div className="detailView__col1_row1-todo_text">STATUS</div>
                            <div className="detailView__col1_row1-todo_count">{this.props.status}</div>
@@ -88,7 +86,8 @@ class MissionDetailView extends Component {
                 <div  className="detailViewRow">
                    <div className="detailView__description">
                       <div className="detailView__description_head">
-                         discription
+                      <div className="detailView__description_des"> {this.props.name}</div>
+
                       </div>
                       <div className="detailView__description_des">{this.props.description}</div>
                    </div>

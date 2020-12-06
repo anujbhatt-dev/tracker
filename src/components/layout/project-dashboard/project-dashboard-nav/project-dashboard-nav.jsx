@@ -12,7 +12,8 @@ import {NavLink, withRouter} from "react-router-dom"
               <NavLink activeStyle={{color:"#0073b1"}} to={"/projectDashboard/"+this.props.projectId+"/notes"}><i        style={{color:"yellow"}} class="fa fa-clipboard fa-2x"></i> </NavLink>
               <NavLink activeStyle={{color:"#0073b1"}} to={"/projectDashboard/"+this.props.projectId+"/links"}><i         style={{color:"green"}} class="fa fa-paperclip fa-2x"></i> </NavLink>
               <NavLink activeStyle={{color:"#0073b1"}} to={"/projectDashboard/"+this.props.projectId+"/members"}><i      style={{color:"purple"}} class="fa fa-users fa-2x">   </i> </NavLink>
-          </div >
+              <NavLink activeStyle={{color:"#0073b1"}} to={"/projectDashboard/"+this.props.projectId+"/members"}><i      style={{color:"orange"}} class="fa fa-comments fa-2x">   </i> </NavLink>
+ </div >
       )
     }
   }

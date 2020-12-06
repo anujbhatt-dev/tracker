@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import AddMember from "./add-members/add-member";
 import AddMain from "./add-main/add-main";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 
   class AddMission extends Component{
@@ -128,7 +129,7 @@ import axios from "axios";
       if(this.props.type==="MISSION")
       axios.post("/v1/mission/level/n",{...this.state},{params:{id:this.props.missionId}})
       .then(res=>
-        console.log(res.data))
+        this.props.history.push("/projectDashboard/"+this.props.projectId));
 
       else
       axios.post("/v1/mission/level/1/"+this.props.projectId,{...this.state})
@@ -183,4 +184,4 @@ import axios from "axios";
   }
 
 
- export default AddMission;
+ export default withRouter(AddMission);

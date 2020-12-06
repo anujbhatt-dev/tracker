@@ -86,7 +86,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
                 element.push({
                   ...node
                 });
-                element.push( { id: projectNode.id+"-"+node.id, source:projectNode.id, target:node.id, animated: true })
+                element.push( { id: projectNode.id+"-"+node.id, source:projectNode.id, target:node.id })
 
                
               }
@@ -109,7 +109,7 @@ import MissionDetailView from "./detail-view/mission-detail-view/mission-detail-
             element.push({
               ...node
             })
-            element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id, animated: true})
+            element.push({ id: node.parentId+"-"+node.id, source:hashMap[node.parentId], target:node.id})
          
             
               }

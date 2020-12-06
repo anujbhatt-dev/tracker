@@ -9,6 +9,7 @@ import axios from "axios"
 import MissionMember from "./mission-member"
 import UserBar from "../user-bar/user-bar"
 import ProjectBar from "../project-dashboard/project-bar/project-bar"
+import MissionDashboardConversation from "./mission-dashboard-conversation/mission-dashboard-conversation"
 
 
 class MissionDashboard extends Component{
@@ -54,15 +55,14 @@ class MissionDashboard extends Component{
                       <MissionDashboardNav projectId={projectId} missionId={missionId}/>                      
                       <Switch>
                         
-                             <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/objective"><MissionDashboardObjective missionId={missionId} projectId={projectId}/></Route>
-
                        <Route exact path="/projectDashboard/:projectId/mission/:missionId/notes"><MissionDashboardNotes missionId={missionId} projectId={projectId}/></Route>
-
                        <Route exact path="/projectDashboard/:projectId/mission/:missionId/links"><MissionDashboardLinks missionId={missionId} projectId={projectId}/></Route>
-
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/members"><MissionDashboardMembers missionId={missionId} projectId={projectId}/></Route>
-                        </Switch>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/conversations"><MissionDashboardConversation missionId={missionId} projectId={projectId}/></Route>
+
+    </Switch>
 
 
                  </div>
