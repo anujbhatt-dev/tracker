@@ -95,8 +95,24 @@ import MissionObjective from "./mission-objective/mission-objective"
 
                 {this.state.objectives.map(objective=><div className="missionDashboardObjective__r2_b1"><MissionObjective missionId={this.props.missionId} {...objective}/></div>)
                 }
-                <div className="missionDashboardObjective__r2_b2"></div>
-                <div className="missionDashboardObjective__r2_b3"></div>
+                <div className="missionDashboardObjective__r2_b2">
+
+                <h2>Make a list for all trasactions of September 2020 </h2>
+                <br/>
+                <hr/>
+                <br/>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem dolore velit corrupti, reprehenderit delectus fugit placeat? Cumque placeat nobis, sapiente tempore nesciunt veniam ullam et labore repudiandae eos animi nulla?</p>
+
+                </div>
+                <div className="missionDashboardObjective__r2_b3">
+                <h2>Release the next update</h2>
+                <br/>
+                <hr/>
+                <br/>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem dolore velit corrupti, reprehenderit delectus fugit placeat? Cumque placeat nobis, sapiente tempore nesciunt veniam ullam et labore repudiandae eos animi nulla?</p>
+
+               
+                </div>
              </div>
          </div>
          </>

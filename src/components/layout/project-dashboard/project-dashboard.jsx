@@ -77,16 +77,10 @@ class ProjectDashboard extends Component{
                       </div>
                       {this.state.aside==="activities"?
                       <div className="projectDashboard__col2_activities">
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
-                            <div  className="projectDashboard__col2_activities--div">activities ......</div>
+                             <div  className="projectDashboard__col2_activities--div">John Doe started a Conversation</div>
+                            <div  className="projectDashboard__col2_activities--div">3 new Objectives added to the Project</div>
+                            <div  className="projectDashboard__col2_activities--div">Shenna left the the Project</div>
+<div  className="projectDashboard__col2_activities--div">activities ......</div>
                       </div>:
                       <div className="projectDashboard__col2_members">
                         {this.state.members
