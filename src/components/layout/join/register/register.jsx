@@ -25,20 +25,18 @@ import axios from "axios";
     render(){
 
       return (
-            <form onSubmit={(e)=>this.props.onSubmitHandler(e,"register")} className="join__child register">
-                <input onChange={(e)=>this.props.onChangeHandler(e,"register")} value={this.props.register.email} name="email" requored placeholder="username or email" className="register__input" type="email"/>
-                <div className="register__row">
-                   <input onChange={(e)=>this.props.onChangeHandler(e,"register")} value={this.props.register.firstName} name="firstName" requored placeholder="first name" className="register__input register__row_input register__row_first" type="text"/>
-                   <input onChange={(e)=>this.props.onChangeHandler(e,"register")} value={this.props.register.lastName} name="lastName" requored placeholder="Last name" className="register__input register__row_input" type="text"/>
-                </div>
-                <div className="register__row">
-                   <input onChange={(e)=>this.props.onChangeHandler(e,"register")} value={this.props.register.password} name="password" requored placeholder="password" className="register__input register__row_input register__row_first" type="password"/>
-                   <input onChange={(e)=>this.props.onChangeHandler(e,"register")} value={this.props.register.confirmPassword} name="confirmPassword" requored placeholder="confirm password" className="register__input register__row_input" type="password"/>
-                </div>
-                <input onChange={e=>this.fileUpload(e)} type="file" name=""    id=""/>
-                              
-                <input id="register__btn" className="register__btn createProjectSubmit" value="sign up" type="submit"/>
-            </form>
+            <div className="join__child register">
+                                        <h1>Hey !!</h1>
+                                         <h2>Continue With</h2>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+               <a href="http://localhost:8085/oauth2/authorization/google"> <button id="register__btn" style={{backgroundColor:"#DB4437"}} className="register__btn createProjectSubmit" >Google</button></a>
+               <a href="http://localhost:8085/oauth2/authorization/facebook/"> <button id="register__btn" style={{backgroundColor:"#4267B2"}} className="register__btn createProjectSubmit" >Facebook</button></a>
+               <a href="http://localhost:8085/oauth1/authorization/twitter/"><button id="register__btn" style={{backgroundColor:"#1DA1F2"}} className="register__btn createProjectSubmit"  >Twitter</button></a>
+               <a href="http://localhost:8085/oauth2/authorization/github"> <button id="register__btn" style={{backgroundColor:"black"}} className="register__btn createProjectSubmit"  >GitHub</button></a>
+            </div>
       )
     }
   }

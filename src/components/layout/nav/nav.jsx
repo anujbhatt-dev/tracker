@@ -9,6 +9,17 @@ import VerticalNav from "./vertical-nav/vertical-nav"
       show:false
     }
 
+    getCookie=(value)=> {
+
+      let cookies= document.cookie+";";
+  
+      if(cookies.indexOf(value)<0)
+      return null;
+  
+     return cookies.substring(cookies.indexOf(value)+(value.length+1),cookies.indexOf(";",cookies.indexOf(value)+1));
+  
+   }
+
     showHandler=()=>{
       this.setState({
         show:!this.state.show
@@ -16,6 +27,9 @@ import VerticalNav from "./vertical-nav/vertical-nav"
     }
 
     render(){
+
+      if(this.getCookie("jwt")===null)
+      return null ;
 
       return (
              <div className="nav">

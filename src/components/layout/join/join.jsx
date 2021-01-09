@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 import Login from "./login/login"
 import Register from "./register/register"
-import GoogleAuth from "./google-auth/google-auth"
 import axios from "axios"
+import { withRouter } from "react-router-dom"
 
   class Join extends Component{
 
@@ -25,6 +25,25 @@ import axios from "axios"
       rollBack:false,
     }
 
+
+    getCookie=(value)=> {
+
+      let cookies= document.cookie+";";
+  
+      if(cookies.indexOf(value)<0)
+      return null;
+  
+     return cookies.substring(cookies.indexOf(value)+(value.length+1),cookies.indexOf(";",cookies.indexOf(value)+1));
+  
+   }
+
+    componentDidMount=()=>{
+      if(this.getCookie("jwt")!==null)
+         this.props.history.push("/profile");
+
+      
+
+    }
 
     componentWillUnmount=()=>{
 
@@ -114,6 +133,7 @@ import axios from "axios"
       return (
              <div className="join">
                  <Login onSubmitHandler={this.onSubmitHandler} register={this.state.login} onChangeHandler={this.onChangeHandler}/>
+
                  <Register onSubmitHandler={this.onSubmitHandler} register={this.state.register} imageUrlUpdateHandler={this.imageUrlUpdateHandler} onChangeHandler={this.onChangeHandler}/>
              </div>
       )
@@ -121,4 +141,4 @@ import axios from "axios"
   }
 
 
- export default Join;
+ export default withRouter(Join);
