@@ -16,11 +16,21 @@ import Profile from "./profile/profile"
 
   class Layout extends Component{
 
+
+    state={
+      reload:null,
+    }
+
+    reloadHandler=()=>{
+      this.setState({reload:new Date(0)});
+    }
+
+
     render(){
 
       return (
                <div className="layout">
-                      <Nav authenticated={this.props.authenticated}/>
+                      <Nav reloadHandler={this.reloadHandler} authenticated={this.props.authenticated}/>
 
                      <Switch>
 
@@ -32,7 +42,7 @@ import Profile from "./profile/profile"
 
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboard authenticated={this.props.authenticated}/></Route>
                     <Route exact path="/projectDashboard/:id"><ProjectDashboard authenticated={this.props.authenticated}/></Route>
-                    <Route  path="/oauth/:code/redirect/:jwt/:email/:name"><OAuthSuccessHandler/></Route>
+                    <Route  path="/oauth/:code/redirect/:jwt/:email/:name"><OAuthSuccessHandler reloadHandler={this.reloadHandler}/></Route>
 
                     </Switch>
                    
