@@ -62,22 +62,25 @@ import axios from "axios"
 
 
     newLinkSubmitHandler=(e)=>{
-      console.log(this.state);
-      e.preventDefault();
+      axios.post("/v1/mission/"+this.props.missionId+"/link",{...this.state.newLink})
+      .then(res=>console.log(res.data))
+      .catch(err=>alert("something went wrong "+err))  ;  
+        e.preventDefault();
     }
 
     updateLinkSubmitHandler=(e)=>{
       e.preventDefault();
 
 
-      //axios call 
-      //inside then
+      axios.put("/v1/mission/link/"+this.state.selectedLink.id,{...this.state.selectedLink})
+      .then(res=>{
+        let newLinks=[...this.state.links];
+        newLinks[this.state.selectedIndex]=this.state.selectedLink;
+         this.setState({links:newLinks,show:false});   
+           })
+      .catch(err=>alert("something went wrong "+err))
           
-       let newLinks=[...this.state.links];
-       newLinks[this.state.selectedIndex]=this.state.selectedLink;
-
-       console.log(this.state.selectedIndex)
-       this.setState({links:newLinks,show:false});
+      
 
 
 

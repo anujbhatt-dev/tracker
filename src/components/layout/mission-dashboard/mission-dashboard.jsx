@@ -10,6 +10,7 @@ import MissionMember from "./mission-member"
 import UserBar from "../user-bar/user-bar"
 import ProjectBar from "../project-dashboard/project-bar/project-bar"
 import MissionDashboardConversation from "./mission-dashboard-conversation/mission-dashboard-conversation"
+import MissionNotification from "./mission-notification/mission-notification"
 
 
 class MissionDashboard extends Component{
@@ -72,12 +73,7 @@ class MissionDashboard extends Component{
                           <div style={this.state.aside==="members"?{color:"#0073b1"}:{color:"black"}} onClick={()=>this.asideHandler("members")}> <i style={{color:"pink",height:"15px",width:"35px"}} class="fa fa-users fa-1x"></i> </div>
                       </div>
                       {this.state.aside==="activities"?
-                      <div className="projectDashboard__col2_activities">
-                            <div  className="projectDashboard__col2_activities--div">John Doe started a Conversation</div>
-                            <div  className="projectDashboard__col2_activities--div">3 new Objectives added to the Project</div>
-                            <div  className="projectDashboard__col2_activities--div">Shenna left the the Project</div>
-
-                      </div>:
+                     <MissionNotification missionId={this.props.match.params.missionId}/>:
                       <div className="projectDashboard__col2_members">
                         {this.state.members
                         .map((member,i)=>

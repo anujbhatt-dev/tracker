@@ -8,6 +8,8 @@ import { withRouter } from 'react-router-dom';
         if(this.getCookie("jwt")===null)
                  this.props.history.push("/");
 
+                 this.props.imageHandler(null);
+
     }
 
     getCookie=(value)=> {

@@ -63,7 +63,13 @@ import axios from "axios"
 
 
     newNoteSubmitHandler=(e)=>{
-      console.log(this.state);
+      // console.log(this.state.newNote);
+
+
+      axios.post("/v1/mission/"+this.props.missionId+"/note",{...this.state.newNote})
+      .then(res=>console.log(res.data))
+      .catch(err=>alert("something went wrong "+err))
+
       e.preventDefault();
     }
 
@@ -72,12 +78,16 @@ import axios from "axios"
 
       //axios call 
       //inside then
-          
-      let newNotes=[...this.state.notes];
-      newNotes[this.state.selectedIndex]=this.state.selectedNote;
 
-      console.log(this.state.selectedIndex)
-      this.setState({notes:newNotes,show:false});
+      axios.put("/v1/mission/note/"+this.state.selectedNote.id,{...this.state.selectedNote})
+      .then(res=>{
+        let newNotes=[...this.state.notes];
+        newNotes[this.state.selectedIndex]=this.state.selectedNote;
+        this.setState({notes:newNotes,show:false});
+            })
+      .catch(err=>alert("something went wrong "+err))
+          
+    
     }
 
 

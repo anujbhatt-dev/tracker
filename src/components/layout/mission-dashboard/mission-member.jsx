@@ -64,7 +64,6 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
                            </CircularProgressbarWithChildren>
                   </div>
                 <div className="projectDashboardMember__member_textWrapper">
-                    <div className="projectDashboardMember__member_text">{this.props.member.member.user.email}</div>
                     <div className="projectDashboardMember__member_text">{this.props.member.member.user.firstName} {this.props.member.member.user.lastName}</div>
                     <div className="projectDashboardMember__member_text">{this.props.member.member.user.authority}</div>
                 </div>

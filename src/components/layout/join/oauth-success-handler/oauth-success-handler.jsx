@@ -12,9 +12,6 @@ import { withRouter } from 'react-router-dom'
         this.setCookie("jwt",params["jwt"].substring(1).substring(0,params["jwt"].substring(1).length-1));
         this.setCookie("email",params["email"].substring(1).substring(0,params["email"].substring(1).length-1));
         this.setCookie("name",params["name"].substring(1).substring(0,params["name"].substring(1).length-1));
-
-        this.props.reloadHandler();
-
        this.props.history.push("/profile");
 
     }

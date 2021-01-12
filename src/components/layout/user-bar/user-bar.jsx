@@ -1,11 +1,42 @@
 import React, { Component } from 'react'
 import AppContext from '../../.././app-context'
 import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from 'react-circular-progressbar';
+import axios from 'axios';
 
 
  class UserBar extends Component {
 
     static contextType=AppContext;
+
+
+
+    state={
+
+      user:undefined,
+
+    }
+
+
+    
+  getCookie=(value)=> {
+
+    let cookies= document.cookie+";";
+
+    if(cookies.indexOf(value)<0)
+    return null;
+
+   return cookies.substring(cookies.indexOf(value)+(value.length+1),cookies.indexOf(";",cookies.indexOf(value)+1));
+
+ }
+    
+    componentDidMount=()=>{
+      
+       if(this.getCookie('jwt')!==null){
+         axios.get("/v1/user/my_profile")
+         .then(res=>{ this.setState({user:res.data})})
+       }
+
+    }
 
     render() {
 
@@ -31,7 +62,10 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
         }
   
   
-  
+
+        if(!this.state.user)
+               return null;      
+
         let progressValue=2;
   
 
@@ -44,12 +78,12 @@ import { CircularProgressbar,buildStyles,CircularProgressbarWithChildren  } from
                                        value={progressValue}>
                 <img
                 className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
-                 src={this.context.imageUrl}
+                 src={this.state.user.imageUrl}
                  //src="https://i.ibb.co/nbGYCsw/me.jpg"
                  alt=""/>
                  </CircularProgressbarWithChildren>
                  <figcaption>
-                    {this.context.name}
+                    {this.state.user.firstName}
                  </figcaption>
                </figure>
             </div>

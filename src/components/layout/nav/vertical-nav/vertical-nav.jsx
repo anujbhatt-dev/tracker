@@ -16,7 +16,7 @@ import { NavLink, withRouter } from "react-router-dom";
       this.deleteCookie("name");
       this.deleteCookie("email");
 
-      this.props.reloadHandler();
+      this.props.imageHandler(null);
       this.props.history.push("/");
 
     }
