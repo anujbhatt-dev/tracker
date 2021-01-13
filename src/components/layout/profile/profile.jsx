@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
+import classes from "./profile.css"
 
  class Profile extends Component {
 
@@ -26,7 +27,8 @@ import { withRouter } from 'react-router-dom';
     render() {
         return (
             <div className="createProjectWrapper">
-            User Profile
+               My Profile
+	
             </div>
         )
     }

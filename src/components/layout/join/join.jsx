@@ -129,9 +129,11 @@ import { withRouter } from "react-router-dom"
 
     render(){
       // <GoogleAuth/>
+      
 
       return (
-             <div className="join">
+      
+      <div className="join" style={{backgroundColor:"#2d89ff",overflow:"hidden"}}>
                  <Login onSubmitHandler={this.onSubmitHandler} register={this.state.login} onChangeHandler={this.onChangeHandler}/>
 
                  <Register onSubmitHandler={this.onSubmitHandler} register={this.state.register} imageUrlUpdateHandler={this.imageUrlUpdateHandler} onChangeHandler={this.onChangeHandler}/>

@@ -10,6 +10,8 @@ import axios from "axios"
 import ProjectMember from "./project-member"
 import UserBar from "../user-bar/user-bar"
 import ProjectNotification from "./project-notification/project-notification"
+import ProjectDiscussion from "./project-discussion/project-discussion"
+import ProjectComment from "./project-discussion/comment/project-comment"
 
 
 class ProjectDashboard extends Component{
@@ -65,8 +67,10 @@ class ProjectDashboard extends Component{
                      <Route exact path="/projectDashboard/:id/notes"><ProjectDashboardNotes projectId={projectId}/></Route>
 
                      <Route exact path="/projectDashboard/:id/links"><ProjectDashboardLinks projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id/members"><ProjectDashboardMembers  projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id/discussion"><ProjectDiscussion  projectId={projectId}/></Route>
+                    <Route exact path="/projectDashboard/:id/discussion/:discussionId/comment"><ProjectComment  projectId={projectId}/></Route>
 
-                     <Route exact path="/projectDashboard/:id/members"><ProjectDashboardMembers  projectId={projectId}/></Route>
                         </Switch>:null}
 
 

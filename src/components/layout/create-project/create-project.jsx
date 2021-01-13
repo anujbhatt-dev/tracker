@@ -146,7 +146,7 @@ class CreateProject extends Component{
 
       return (
         <div className="createProjectWrapper">
-           <form autocomplete="off" onSubmit={this.createProject} className="createProject">
+        <form autocomplete="off" onSubmit={this.createProject} className="createProject">
                    <CreateProjectMain
                    notesChangeHandler={this.notesChangeHandler}
                    addNoteHandler={this.addNoteHandler}
