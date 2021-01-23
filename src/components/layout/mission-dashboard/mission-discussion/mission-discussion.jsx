@@ -57,7 +57,7 @@ export default class MissionDiscussion extends Component {
                     <form onSubmit={this.addNewConversation} class="input_comment">
                         <h3>Start A conversation</h3>
                         <input name="title" onChange={this.onChangeHandler} value={this.state.newConversation.title} type="text" placeholder="Topic" />
-                        <textarea name="conversation" onChange={this.onChangeHandler} value={this.state.newConversation.conversation} type="text" placeholder="Comment/Description" />
+                        <textarea name="conversation" onChange={this.onChangeHandler} value={this.state.newConversation.conversation} type="text" placeholder="Comment/Description" cols="70" rows="10" />
                          <input type="submit" value="START" id=""/>
                     </form>
 
@@ -91,18 +91,18 @@ export default class MissionDiscussion extends Component {
 
                         <div class="comment_toolbar">
 
-                            <div class="comment_details">
+                            <div class="comment_details" style={{color:'black'}}>
                                 <ul>
-                                    <li><i class="fa fa-clock-o"></i> {conversation.startedOn.substring(conversation.startedOn.indexOf('::')+2)}</li>
-                                    <li><i class="fa fa-calendar"></i> {conversation.startedOn.substring(0,conversation.startedOn.indexOf('::'))}</li>
-                                    <li><i class="fa fa-pencil"></i> <span class="user">{conversation.startedBy}</span></li>
+                                    <li style={{color:'black'}}><i class="fa fa-clock-o"></i> {conversation.startedOn.substring(conversation.startedOn.indexOf('::')+2)}</li>
+                                    <li style={{color:'black'}}><i class="fa fa-calendar"></i> {conversation.startedOn.substring(0,conversation.startedOn.indexOf('::'))}</li>
+                                    <li style={{color:'black'}}><i class="fa fa-pencil"></i> <span class="user">{conversation.startedBy}</span></li>
                                 </ul>
                             </div>
                             <div class="comment_tools">
                                 <ul>
-                                    <li><i class="fa fa-share-alt"></i></li>
-                                  <li> <Link to={"discussion/"+conversation.id+"/comment"}><i class="fa fa-reply"></i></Link> </li>
-                                    <li><i class="fa fa-heart love"></i></li>
+                                    <li style={{color:'black'}}><i class="fa fa-share-alt"></i></li>
+                                    <li style={{color:'black'}}> <Link to={"discussion/"+conversation.id+"/comment"}><i class="fa fa-reply"></i></Link> </li>
+                                    <li style={{color:'black'}}><i class="fa fa-heart love"></i></li>
                                 </ul>
                             </div>
 

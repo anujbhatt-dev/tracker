@@ -94,16 +94,16 @@ this.state.conversation.comments.map(
 
                         <div class="comment_details">
                             <ul>
-                            <li><i class="fa fa-clock-o"></i> {comment.addedOn.substring(comment.addedOn.indexOf('::')+2)}</li>
-                                    <li><i class="fa fa-calendar"></i> {comment.addedOn.substring(0,comment.addedOn.indexOf('::'))}</li>
-                                    <li><i class="fa fa-pencil"></i> <span class="user">{comment.addedBy}</span></li>
+                                    <li style={{color:'black'}}><i class="fa fa-clock-o"></i> {comment.addedOn.substring(comment.addedOn.indexOf('::')+2)}</li>
+                                    <li style={{color:'black'}}><i class="fa fa-calendar"></i> {comment.addedOn.substring(0,comment.addedOn.indexOf('::'))}</li>
+                                    <li style={{color:'black'}}><i class="fa fa-pencil"></i> <span class="user">{comment.addedBy}</span></li>
                                   </ul>
                         </div>
                         <div class="comment_tools">
                             <ul>
-                                <li><i class="fa fa-share-alt"></i></li>
-                                <li><i class="fa fa-heart love"></i></li>
-                                <li onClick={()=>this.deleteCommentHandler(comment.id,i)}><i class="fa fa-trash"></i></li>
+                                <li style={{color:'black'}}><i class="fa fa-share-alt"></i></li>
+                                <li style={{color:'black'}}><i class="fa fa-heart love"></i></li>
+                                <li style={{color:'black'}} onClick={()=>this.deleteCommentHandler(comment.id,i)}><i class="fa fa-trash"></i></li>
 
                             </ul>
                         </div>
@@ -121,7 +121,7 @@ this.state.conversation.comments.map(
     <input name="comment" value={this.state.comment.comment}  onChange={this.onChangeHandler} type="text" placeholder="Join the conversation.." />
     <textarea name="description" value={this.state.comment.description} onChange={this.onChangeHandler} placeholder="description" cols="60" rows="10"></textarea>
    <br/><br/>
-    <input type="submit" value='ADD'/>
+    <input type="submit" value='POST'/>
 </form>
 
 </div>

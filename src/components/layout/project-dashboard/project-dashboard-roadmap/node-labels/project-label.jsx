@@ -61,9 +61,10 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
             <div>
                 
              
-                 <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
-                                       value={progressValue} >
-
+                 <CircularProgressbarWithChildren
+                styles={buildStyles({...progressStyle,pathColor:this.props.projectInsight.completedObjectiveCount/this.props.projectInsight.objectiveCount*100<30?'red':this.props.projectInsight.completedObjectiveCount/this.props.projectInsight.objectiveCount*100<70?'yellow':'green'})}
+                value={this.props.projectInsight.completedObjectiveCount/this.props.projectInsight.objectiveCount*100} >
+  
                  <span>{progressValue}%</span> 
                  <i onClick={()=>this.props.modalHandler("PROJECT",{...this.props})} class="fa fa-chevron-right fa-3x"></i>
                  

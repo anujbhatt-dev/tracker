@@ -52,31 +52,18 @@ import { NavLink } from 'react-router-dom';
                   },
         }
 
-      let progressValue=2;
-
-
-      if(this.props.missionInsight==null){
-
-      }else{
-            
-        progressValue=70;
-      }
-
-      if(progressValue<=40)
-      progressStyle.pathColor='red'
-      else if(progressValue<=70)
-      progressStyle.pathColor='yellow'
-
-
-
       let missionId=this.props.missionId;//.replace(".","$");
 
       
 
-        return (
-            <div>
-                <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
-                                       value={progressValue} >
+      if(this.props.missionInsight===null)
+      return null;
+
+     return (
+         <div>
+             <CircularProgressbarWithChildren  
+              styles={buildStyles({...progressStyle,pathColor:this.props.missionInsight.completedObjectiveCount/this.props.missionInsight.objectiveCount*100<30?'red':this.props.missionInsight.completedObjectiveCount/this.props.missionInsight.objectiveCount*100<70?'yellow':'green'})}
+              value={this.props.missionInsight.completedObjectiveCount/this.props.missionInsight.objectiveCount*100} >
 
                 <i onClick={()=>this.props.modalHandler("MISSIONLEAF",this.props)} class="fa fa-chevron-right fa-3x"></i>
               

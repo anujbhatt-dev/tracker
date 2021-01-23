@@ -54,9 +54,9 @@ import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 
               <div  className="projectDashboardMember__member">
              <div className="createProjectMember__result_item-fig_img">
               <CircularProgressbarWithChildren
-              styles={buildStyles({...progressStyle})}
-                   value={progressValue} >
-                <img
+              styles={buildStyles({...progressStyle,pathColor:this.props.member.missionMemberInsight.completedObjectiveCount/this.props.member.missionMemberInsight.objectiveCount*100<30?'red':this.props.member.missionMemberInsight.completedObjectiveCount/this.props.member.missionMemberInsight.objectiveCount*100<70?'yellow':'green'})}
+              value={this.props.member.missionMemberInsight.completedObjectiveCount/this.props.member.missionMemberInsight.objectiveCount*100} >
+              <img
                 className="createProjectMember__result_item-fig_img  createProjectMember__result_item-fig_img--circle"
                  src={this.props.member.member.user.thumbnailUrl?this.props.member.member.user.thumbnailUrl:this.props.member.member.user.imageUrl}
                //  src="https://i.ibb.co/nbGYCsw/me.jpg"
