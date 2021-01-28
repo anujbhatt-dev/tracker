@@ -14,6 +14,7 @@ import OAuthSuccessHandler from "./join/oauth-success-handler/oauth-success-hand
 import Profile from "./profile/profile"
 import Notification from "react-web-notification"
 import axios from "axios"
+import Charts from "./charts/charts"
 
 
   class Layout extends Component{
@@ -64,6 +65,7 @@ import axios from "axios"
 
                      <Route exact path="/createProject"><CreateProject authenticated={this.props.authenticated}/></Route>
                      <Route exact path="/projects"><Projects authenticated={this.props.authenticated} /></Route>
+                     <Route  exact path="/charts"><Charts/></Route>
 
                      <Route  path="/projectDashboard/:projectId/mission/:missionId"><MissionDashboard authenticated={this.props.authenticated}/></Route>
                     <Route  path="/projectDashboard/:id"><ProjectDashboard authenticated={this.props.authenticated}/></Route>

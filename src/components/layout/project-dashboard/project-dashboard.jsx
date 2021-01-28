@@ -48,12 +48,12 @@ class ProjectDashboard extends Component{
 
       const projectId= this.props.match.params.id;
       return (<>
-           <ProjectBar projectId={projectId} />
+           {/* <ProjectBar projectId={projectId} /> */}
            <div style={{background:"white"}} className="projectDashboard">
 
           
 
-<UserBar/>
+{/* <UserBar/> */}
 
 
                  <div style={{background:"rgba(221, 221, 221, 0.5)"}} className="projectDashboard__col1">

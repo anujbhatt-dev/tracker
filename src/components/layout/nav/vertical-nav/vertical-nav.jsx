@@ -28,8 +28,7 @@ import { NavLink, withRouter } from "react-router-dom";
            <NavLink to="/createProject">  <div  aria-hidden="true" style={{background:"white",color:"red"}} className="verticalNav__item"><i className="fa fa-plus-circle" aria-hidden="true"></i></div></NavLink>
            <NavLink to="/projects">  <div  aria-hidden="true" style={{background:"white",color:"green"}} className="verticalNav__item"><i className="fa fa-object-group" aria-hidden="true"></i></div></NavLink>
            <NavLink to="/">  <div  aria-hidden="true" style={{background:"white",color:"blue"}}  className="verticalNav__item"><i className="fa fa-user" aria-hidden="true"></i></div></NavLink>
-           <NavLink to="/">  <div  aria-hidden="true" style={{background:"white",color:"black"}} className="verticalNav__item"><i className="fa fa-area-chart" aria-hidden="true"></i></div></NavLink>
-      
+           <NavLink to="/charts">  <div  aria-hidden="true" style={{background:"white",color:"black"}} className="verticalNav__item"><i className="fa fa-area-chart" aria-hidden="true"></i></div></NavLink>
            <NavLink to="/" onClick={this.logout}>  <div  aria-hidden="true" style={{background:"white",color:"red"}} className="verticalNav__item"><i className="fa fa-power-off  " aria-hidden="true"></i></div></NavLink>
       </div>
       )

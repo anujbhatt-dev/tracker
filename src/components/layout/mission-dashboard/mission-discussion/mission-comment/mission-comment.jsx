@@ -113,9 +113,7 @@ this.state.conversation.comments.map(
              </div> <br/><br/>
              </>
 )}
-    
-
-             <div class="create_new_comment">
+                 <div class="create_new_comment">
 
 <form class="input_comment" onSubmit={this.onSubmitHandler}>
     <input name="comment" value={this.state.comment.comment}  onChange={this.onChangeHandler} type="text" placeholder="Join the conversation.." />
