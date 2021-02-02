@@ -52,7 +52,7 @@ class MissionDashboard extends Component{
         <ProjectBar/>
 
            <div style={{background:"white"}} className="projectDashboard">
-                 <UserBar/>
+                 {/* <UserBar/> */}
 
                  <div className="projectDashboard__col1">
                       <MissionDashboardNav projectId={projectId} missionId={missionId}/>                      
