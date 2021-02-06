@@ -17,7 +17,9 @@ class Projects extends Component {
 
 
     componentDidMount = () => {
-        axios.get("/v1/project/list/0")
+
+        setTimeout(() => {
+            axios.get("/v1/project/list/0")
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -25,6 +27,8 @@ class Projects extends Component {
                     totalPages: res.data.totalPages,
                 })
             })
+        }, 1000);
+        
     }
 
     // {this.state.data.map(project=>
@@ -98,7 +102,7 @@ render() {
       <ProjectInsight project={project}/>
   </div>
   <div style={{...style,'overflow-y': 'auto'}}>
-<MissionInsight missions={project.missions}/>
+<MissionInsight missions={project.missions} project={project}/>
   </div>
  
   </Dashboard>)}

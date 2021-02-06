@@ -77,6 +77,7 @@ import axios from 'axios';
               <CircularProgressbarWithChildren  styles={buildStyles({...progressStyle})}
                                        value={progressValue}>
                 <img
+                style={{height:'15px', width:"15px"}}
                 className="createProjectMember__result_item-fig_img createProjectMember__result_item-fig_img--circle"
                  src={this.state.user.imageUrl}
                  //src="https://i.ibb.co/nbGYCsw/me.jpg"

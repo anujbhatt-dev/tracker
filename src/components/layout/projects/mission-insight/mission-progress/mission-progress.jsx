@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CircularProgressbar,CircularProgressbarWithChildren,buildStyles } from 'react-circular-progressbar';
 import {Dashboard} from "precise-ui"
+import { Link } from 'react-router-dom';
 
 
 export default class MissionProgress extends Component {
@@ -58,7 +59,7 @@ export default class MissionProgress extends Component {
                    styles={buildStyles({...this.progressStyle,pathColor:this.props.mission.missionInsight.completedObjectiveCount/this.props.mission.missionInsight.objectiveCount*100<30?'red':this.props.mission.missionInsight.completedObjectiveCount/this.props.mission.missionInsight.objectiveCount*100<70?'yellow':'green'})}
                    value={this.props.mission.missionInsight.completedObjectiveCount/this.props.mission.missionInsight.objectiveCount*100} 
                   /></div>
-                <div style={style}>{this.props.mission.missionId}</div>
+                <div style={style}><Link to={`/projectDashboard/${this.props.project.projectId}/mission/${this.props.mission.missionId}`}>{this.props.mission.missionId}</Link></div>
                   </Dashboard>
             </div>
         )

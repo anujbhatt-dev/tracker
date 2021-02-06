@@ -13,6 +13,7 @@ import MissionDashboardConversation from "./mission-dashboard-conversation/missi
 import MissionNotification from "./mission-notification/mission-notification"
 import MissionDiscussion from "./mission-discussion/mission-discussion"
 import MissionComment from "./mission-discussion/mission-comment/mission-comment"
+import MissionMeeting from "./mission-meeting/mission-meeting"
 
 
 class MissionDashboard extends Component{
@@ -65,6 +66,7 @@ class MissionDashboard extends Component{
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/members"><MissionDashboardMembers missionId={missionId} projectId={projectId}/></Route>
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/discussion"><MissionDiscussion missionId={missionId} projectId={projectId}/></Route>
                      <Route exact path="/projectDashboard/:projectId/mission/:missionId/discussion/:discussionId/comment"><MissionComment missionId={missionId} projectId={projectId}/></Route>
+                     <Route exact path="/projectDashboard/:projectId/mission/:missionId/meeting"><MissionMeeting missionId={missionId} projectId={projectId}/></Route>
 
     </Switch>
 

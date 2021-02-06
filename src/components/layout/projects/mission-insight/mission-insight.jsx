@@ -32,7 +32,6 @@ export default class MissionInsight extends Component {
           };
           const tiles = [
             { id: '1', rowSpan: 1,colSpan:1},
-            // { id: '2', rowSpan: 1,},
             { id: '2', colSpan: 4,rowSpan:1}
           ];
         return (
@@ -45,7 +44,7 @@ export default class MissionInsight extends Component {
           [<Dashboard defaultTiles={tiles} rowHeight={150} disabled>
            
            <div style={{...style, backgroundColor:"#ccc"}}>
-             <MissionProgress mission={mission}/>
+             <MissionProgress mission={mission} project={this.props.project}/>
              </div>
       
           <div style={style}>

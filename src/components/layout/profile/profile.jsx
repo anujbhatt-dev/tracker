@@ -2,8 +2,18 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import classes from "./profile.css"
 import {Grid,Dashboard} from "precise-ui"
+import ProjectInsight from '../projects/project-insights/project-insight';
+import Projects from '../projects/projects';
+import axios from 'axios';
+import Charts from '../charts/charts';
+import ProfileInsight from './profile-insight/profile-insight';
+
 
  class Profile extends Component {
+
+  state={
+    user:undefined,
+  }
 
     componentDidMount=()=>{
         
@@ -11,6 +21,16 @@ import {Grid,Dashboard} from "precise-ui"
                  this.props.history.push("/");
 
                  this.props.imageHandler(null);
+         
+             
+                 setTimeout(() => {
+                  axios.get("/v1/user/my_profile")
+                  .then(res=>{
+                    this.setState({user:res.data});
+                  })
+               
+                 }, 1000);        
+
 
     }
 
@@ -35,19 +55,26 @@ import {Grid,Dashboard} from "precise-ui"
           const tiles = [
             { id: '1', rowSpan: 2},
             { id: '2', rowSpan: 3},
-            { id: '3', colSpan: 2},
-            { id: '4', rowSpan: 2,colSpan:2 },
+            // { id: '3', colSpan: 2},
+            { id: '4', rowSpan: 3,colSpan:2 },
             { id: '4', rowSpan: 3,colSpan:1 },
           ];
         return (
             <div className="createProjectWrapper">
                <Dashboard defaultTiles={tiles} rowHeight={150} disabled>
   <div hidden style={style}>First</div>
-  <div style={style}>Second</div>
-  <div style={style}>Third</div>
-  <div style={style}>Third</div>
+  <div style={style}>
+
+    {this.state.user?<ProfileInsight user={this.state.user}/>:null}
+  </div>
+  {/* <div style={style}>Third</div> */}
+  <div style={{...style,overflow:"scroll"}}>
+    <Charts rowHeight={100} colWidth={100}/>
+  </div>
   <div hidden style={style}>Third</div>
 </Dashboard>
+
+<Projects/>
 	
             </div>
         )

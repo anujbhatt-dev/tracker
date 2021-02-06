@@ -42,6 +42,7 @@ export default class ProjectInsight extends Component {
             {id:'3',colSpan:3,rowSpan:1},
           ];
 
+
         return (
             <div>
                 {/* <br/> */}
@@ -54,8 +55,8 @@ export default class ProjectInsight extends Component {
                    value={this.props.project.projectInsight.completedObjectiveCount/this.props.project.projectInsight.objectiveCount*100} 
                   />
                   </div>
-                  <div  style={style}>{this.props.propjectId}
-                  <ProjectElements/>
+                  <div  style={style}>
+                  <ProjectElements project={this.props.project}/>
                   </div>
 
                 </Dashboard>
